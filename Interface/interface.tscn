@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cr2kker7c7odl"]
-
-[node name="Interface" type="CanvasLayer"]
-
-[node name="Tela" type="Sprite2D" parent="."]
-
-[node name="Pergaminho" type="Sprite2D" parent="."]
