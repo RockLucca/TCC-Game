@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr2kker7c7odl"]
+[gd_scene load_steps=4 format=3 uid="uid://cr2kker7c7odl"]
 
 [ext_resource type="Texture2D" uid="uid://broaxnxubb784" path="res://Sprites/ScrollOpen.png" id="1_2sfr8"]
 [ext_resource type="Texture2D" uid="uid://dg27d78arfuiw" path="res://Sprites/Table.png" id="1_wxnty"]
 [ext_resource type="Texture2D" uid="uid://b06xgwjf3yol0" path="res://Sprites/Frame.png" id="2_t4h0f"]
-[ext_resource type="Texture2D" uid="uid://bbrn6j8ksjbb7" path="res://Sprites/Text.png" id="4_clmj0"]
 
 [node name="Interface" type="CanvasLayer"]
 
@@ -15,18 +14,13 @@ scale = Vector2(9.99866, 9.82584)
 texture = ExtResource("1_wxnty")
 
 [node name="Scroll" type="Sprite2D" parent="Sprites"]
-position = Vector2(461.625, 160)
-scale = Vector2(9.50852, 7.5)
+position = Vector2(377.432, 165)
+scale = Vector2(7.84453, 6.1875)
 texture = ExtResource("1_2sfr8")
 
 [node name="Map" type="Sprite2D" parent="Sprites"]
-position = Vector2(1080, 192)
-scale = Vector2(4.71094, 4.71094)
+position = Vector2(184, 464)
+scale = Vector2(4.49023, 4.49023)
 texture = ExtResource("2_t4h0f")
 
 [node name="Bag" type="Sprite2D" parent="Sprites"]
-
-[node name="Text" type="Sprite2D" parent="Sprites"]
-position = Vector2(464, 464)
-scale = Vector2(9.5, 10.5)
-texture = ExtResource("4_clmj0")
