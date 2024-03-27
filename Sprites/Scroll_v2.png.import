@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://broaxnxubb784"
-path="res://.godot/imported/ScrollOpen.png-0fd4740d4352b681478967b30ae5b974.ctex"
+uid="uid://3d51lii1lbky"
+path="res://.godot/imported/Scroll_v2.png-db5884bf10c955fa1dd40ff76258c9a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ScrollOpen.png"
-dest_files=["res://.godot/imported/ScrollOpen.png-0fd4740d4352b681478967b30ae5b974.ctex"]
+source_file="res://Sprites/Scroll_v2.png"
+dest_files=["res://.godot/imported/Scroll_v2.png-db5884bf10c955fa1dd40ff76258c9a8.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1711115598
+::res://::1711559395
 icon.svg::CompressedTexture2D::1204105402980829156::1695047074::1710853017::1::::<><>::
 README.md::TextFile::-1::1695046997::0::1::::<><>::
 ::res://Font/::1711114304
@@ -12,13 +12,13 @@ The Centurion Read Me.txt::TextFile::-1::1711114304::0::1::::<><>::
 The Centurion.otf::FontFile::4031090037623771132::1711114304::1711114304::1::::<><>::
 The-Centurion.png::CompressedTexture2D::4464448883907474506::1711114304::1711114304::1::::<><>::
 ::res://Scenes/::1710958356
-::res://Scenes/Interface/::1711115541
-interface.tscn::PackedScene::6022415174272036105::1711115541::0::1::::<><>::uid://broaxnxubb784::::res://Sprites/ScrollOpen.png<>uid://dg27d78arfuiw::::res://Sprites/Table.png<>uid://b06xgwjf3yol0::::res://Sprites/Frame.png
+::res://Scenes/Interface/::1711459199
+interface.tscn::PackedScene::6022415174272036105::1711459199::0::1::::<><>::uid://dg27d78arfuiw::::res://Sprites/Table.png<>uid://3d51lii1lbky::::res://Sprites/Scroll_v2.png<>uid://b06xgwjf3yol0::::res://Sprites/Frame.png<>uid://dkl3axlw277jt::::res://Sprites/Text_v2.png
 ::res://Scripts/::1710958311
-::res://Sprites/::1711115380
-Frame.png::CompressedTexture2D::4206545860299319079::1710963198::1710963198::1::::<><>::
-Scroll.png::CompressedTexture2D::5275922200885873015::1710958375::1710958375::1::::<><>::
-ScrollOpen.png::CompressedTexture2D::3608574106600476759::1710963874::1710963874::1::::<><>::
+::res://Sprites/::1711455293
+Frame.png::CompressedTexture2D::4206545860299319079::1711120042::1711120042::1::::<><>::
+Scroll.png::CompressedTexture2D::5275922200885873015::1711120042::1711120042::1::::<><>::
+Scroll_v2.png::CompressedTexture2D::1973349286065556200::1711120042::1711120042::1::::<><>::
 Table.png::CompressedTexture2D::7638083345166040942::1710969274::1710969274::1::::<><>::
 Text.png::CompressedTexture2D::2492549153834625710::1710978052::1710978053::1::::<><>::
-Text_v2.png::CompressedTexture2D::7885559944618602869::1711115379::1711115380::1::::<><>::
+Text_v2.png::CompressedTexture2D::7885559944618602869::1711455293::1711455293::1::::<><>::

@@ -1,4 +1,6 @@
+RichTextLabel
+Panel
+CanvasLayer
 Node
 Sprite2D
 ColorRect
-CanvasLayer
