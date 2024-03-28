@@ -12,13 +12,13 @@ The Centurion Read Me.txt::TextFile::-1::1711114304::0::1::::<><>::
 The Centurion.otf::FontFile::4031090037623771132::1711114304::1711114304::1::::<><>::
 The-Centurion.png::CompressedTexture2D::4464448883907474506::1711114304::1711114304::1::::<><>::
 ::res://Scenes/::1710958356
-::res://Scenes/Interface/::1711459199
-interface.tscn::PackedScene::6022415174272036105::1711459199::0::1::::<><>::uid://dg27d78arfuiw::::res://Sprites/Table.png<>uid://3d51lii1lbky::::res://Sprites/Scroll_v2.png<>uid://b06xgwjf3yol0::::res://Sprites/Frame.png<>uid://dkl3axlw277jt::::res://Sprites/Text_v2.png
+::res://Scenes/Interface/::1711560307
+interface.tscn::PackedScene::6022415174272036105::1711560307::0::1::::<><>::uid://dg27d78arfuiw::::res://Sprites/Table.png<>uid://3d51lii1lbky::::res://Sprites/Scroll_v2.png<>uid://b06xgwjf3yol0::::res://Sprites/Frame.png<>uid://dkl3axlw277jt::::res://Sprites/Text_v2.png
 ::res://Scripts/::1710958311
-::res://Sprites/::1711455293
+::res://Sprites/::1711561327
 Frame.png::CompressedTexture2D::4206545860299319079::1711120042::1711120042::1::::<><>::
 Scroll.png::CompressedTexture2D::5275922200885873015::1711120042::1711120042::1::::<><>::
 Scroll_v2.png::CompressedTexture2D::1973349286065556200::1711120042::1711120042::1::::<><>::
 Table.png::CompressedTexture2D::7638083345166040942::1710969274::1710969274::1::::<><>::
 Text.png::CompressedTexture2D::2492549153834625710::1710978052::1710978053::1::::<><>::
-Text_v2.png::CompressedTexture2D::7885559944618602869::1711455293::1711455293::1::::<><>::
+Text_v2.png::CompressedTexture2D::7885559944618602869::1711561327::1711561328::1::::<><>::
