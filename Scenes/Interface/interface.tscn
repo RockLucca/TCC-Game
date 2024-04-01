@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr2kker7c7odl"]
+[gd_scene load_steps=9 format=3 uid="uid://cr2kker7c7odl"]
 
 [ext_resource type="Texture2D" uid="uid://dg27d78arfuiw" path="res://Sprites/Table.png" id="1_wxnty"]
 [ext_resource type="Texture2D" uid="uid://3d51lii1lbky" path="res://Sprites/Scroll_v2.png" id="2_ojobo"]
 [ext_resource type="Texture2D" uid="uid://b06xgwjf3yol0" path="res://Sprites/Frame.png" id="2_t4h0f"]
 [ext_resource type="Texture2D" uid="uid://dkl3axlw277jt" path="res://Sprites/Text_v2.png" id="4_07yy3"]
+[ext_resource type="Texture2D" uid="uid://dbfntqibptuk8" path="res://Sprites/inventory.png" id="4_uy5fq"]
+[ext_resource type="Texture2D" uid="uid://hhnsc7y7sk4y" path="res://Sprites/ink.png" id="6_3qveo"]
+[ext_resource type="Texture2D" uid="uid://c33df4enfxu5l" path="res://Sprites/Feather.png" id="7_8kqku"]
+[ext_resource type="Texture2D" uid="uid://b4k0w3wud5lrl" path="res://Sprites/Compass.png" id="8_rbmtt"]
 
 [node name="Interface" type="CanvasLayer"]
 
@@ -18,22 +22,42 @@ texture = ExtResource("1_wxnty")
 
 [node name="Scroll" type="Sprite2D" parent="Sprites/Interface"]
 position = Vector2(336, 152)
-scale = Vector2(6.974, 5.5)
+scale = Vector2(7, 5.5)
 texture = ExtResource("2_ojobo")
 
 [node name="Map" type="Sprite2D" parent="Sprites/Interface"]
-position = Vector2(184, 464)
-scale = Vector2(4.49023, 4.49023)
+position = Vector2(176, 480)
+scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_t4h0f")
 
-[node name="Bag" type="Sprite2D" parent="Sprites/Interface"]
+[node name="Inventory" type="Sprite2D" parent="Sprites/Interface"]
+position = Vector2(472, 480)
+scale = Vector2(5.91667, 5.91667)
+texture = ExtResource("4_uy5fq")
 
 [node name="Text" type="Sprite2D" parent="Sprites/Interface"]
 position = Vector2(952, 384)
-scale = Vector2(9.1935, 10.3647)
+scale = Vector2(9, 10)
 texture = ExtResource("4_07yy3")
 
 [node name="Decoration" type="Node" parent="Sprites"]
+
+[node name="InkBottle" type="Sprite2D" parent="Sprites/Decoration"]
+position = Vector2(661.938, 558.808)
+scale = Vector2(4.05556, 4.05556)
+texture = ExtResource("6_3qveo")
+
+[node name="Feather" type="Sprite2D" parent="Sprites/Decoration"]
+position = Vector2(653.938, 462.808)
+rotation = -0.516197
+scale = Vector2(3.9, 3.9)
+texture = ExtResource("7_8kqku")
+
+[node name="Compass" type="Sprite2D" parent="Sprites/Decoration"]
+position = Vector2(128, 224)
+rotation = -0.304778
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("8_rbmtt")
 
 [node name="TextLayer" type="Node" parent="."]
 
