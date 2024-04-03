@@ -1,6 +1,10 @@
+Control
+Button
+VBoxContainer
+ColorRect
+Node2D
 Sprite2D
 RichTextLabel
 Panel
 CanvasLayer
 Node
-ColorRect

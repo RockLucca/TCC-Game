@@ -1,1 +1,2 @@
-res://Scenes/Interface/interface.tscn
+res://Scenes/Interface/menu.tscn
+res://Scripts/menu.gd

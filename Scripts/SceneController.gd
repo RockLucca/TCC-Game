@@ -1,7 +1,7 @@
 class_name SceneController
 extends Node2D
 
-@export_file("*.json") var dialog_path: String = ""
+@export_file("*.json") var dialog_path = "res://Scripts/dialog.json"
 @export var text_delay: float = 0.03
 
 var _dialog: Variant

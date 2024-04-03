@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://by3dim8r3bj6e"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_muhkc"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_muhkc")
+
+[node name="Background" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1337.0
+offset_bottom = 739.0
+color = Color(0.494118, 0.494118, 0.494118, 1)
+
+[node name="Main" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="ButtonBox" type="VBoxContainer" parent="Main"]
+offset_left = 526.0
+offset_top = 324.0
+offset_right = 774.0
+offset_bottom = 671.0
+
+[node name="Jogar" type="Button" parent="Main/ButtonBox"]
+layout_mode = 2
+text = "Jogar"
+
+[node name="Instruções" type="Button" parent="Main/ButtonBox"]
+layout_mode = 2
+text = "Instruções"
+
+[node name="Opções" type="Button" parent="Main/ButtonBox"]
+layout_mode = 2
+text = "Opções"
+
+[node name="Creditos" type="Button" parent="Main/ButtonBox"]
+layout_mode = 2
+text = "Creditos"
+
+[node name="Sair" type="Button" parent="Main/ButtonBox"]
+layout_mode = 2
+text = "Sair
+"
+
+[node name="InstructionsLayer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OptionsLayer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
