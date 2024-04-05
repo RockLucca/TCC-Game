@@ -1,18 +1,18 @@
 [gd_scene load_steps=11 format=3 uid="uid://cr2kker7c7odl"]
 
-[ext_resource type="Script" path="res://Scripts/SceneController.gd" id="1_2v40a"]
-[ext_resource type="Texture2D" uid="uid://dg27d78arfuiw" path="res://Sprites/Table.png" id="1_wxnty"]
-[ext_resource type="Texture2D" uid="uid://3d51lii1lbky" path="res://Sprites/Scroll_v2.png" id="2_ojobo"]
-[ext_resource type="Texture2D" uid="uid://b06xgwjf3yol0" path="res://Sprites/Frame.png" id="2_t4h0f"]
-[ext_resource type="Texture2D" uid="uid://dkl3axlw277jt" path="res://Sprites/Text_v2.png" id="4_07yy3"]
-[ext_resource type="Texture2D" uid="uid://dbfntqibptuk8" path="res://Sprites/inventory.png" id="4_uy5fq"]
-[ext_resource type="Texture2D" uid="uid://hhnsc7y7sk4y" path="res://Sprites/ink.png" id="6_3qveo"]
-[ext_resource type="Texture2D" uid="uid://c33df4enfxu5l" path="res://Sprites/Feather.png" id="7_8kqku"]
-[ext_resource type="Texture2D" uid="uid://b4k0w3wud5lrl" path="res://Sprites/Compass.png" id="8_rbmtt"]
-[ext_resource type="Texture2D" uid="uid://sebrujnt1s6d" path="res://Sprites/Candle.png" id="9_kfhju"]
+[ext_resource type="Script" path="res://Scripts/SceneController.gd" id="1_th5nb"]
+[ext_resource type="Texture2D" uid="uid://dg27d78arfuiw" path="res://Sprites/Table.png" id="2_t1qwy"]
+[ext_resource type="Texture2D" uid="uid://3d51lii1lbky" path="res://Sprites/Scroll_v2.png" id="3_0oich"]
+[ext_resource type="Texture2D" uid="uid://b06xgwjf3yol0" path="res://Sprites/Frame.png" id="4_xjvn5"]
+[ext_resource type="Texture2D" uid="uid://dbfntqibptuk8" path="res://Sprites/inventory.png" id="5_2a1c5"]
+[ext_resource type="Texture2D" uid="uid://dkl3axlw277jt" path="res://Sprites/Text_v2.png" id="6_tvshw"]
+[ext_resource type="Texture2D" uid="uid://hhnsc7y7sk4y" path="res://Sprites/ink.png" id="7_i4bx0"]
+[ext_resource type="Texture2D" uid="uid://c33df4enfxu5l" path="res://Sprites/Feather.png" id="8_41cma"]
+[ext_resource type="Texture2D" uid="uid://b4k0w3wud5lrl" path="res://Sprites/Compass.png" id="9_axy3e"]
+[ext_resource type="Texture2D" uid="uid://sebrujnt1s6d" path="res://Sprites/Candle.png" id="10_48cvj"]
 
-[node name="Interface" type="Node2D"]
-script = ExtResource("1_2v40a")
+[node name="GameInterface" type="Node2D"]
+script = ExtResource("1_th5nb")
 
 [node name="Sprites" type="Node" parent="."]
 
@@ -21,51 +21,51 @@ script = ExtResource("1_2v40a")
 [node name="Table" type="Sprite2D" parent="Sprites/Interface"]
 position = Vector2(640, 360)
 scale = Vector2(10, 10)
-texture = ExtResource("1_wxnty")
+texture = ExtResource("2_t1qwy")
 
 [node name="Scroll" type="Sprite2D" parent="Sprites/Interface"]
 position = Vector2(336, 152)
 scale = Vector2(7, 5.5)
-texture = ExtResource("2_ojobo")
+texture = ExtResource("3_0oich")
 
 [node name="Map" type="Sprite2D" parent="Sprites/Interface"]
 position = Vector2(176, 480)
 scale = Vector2(4.5, 4.5)
-texture = ExtResource("2_t4h0f")
+texture = ExtResource("4_xjvn5")
 
 [node name="Inventory" type="Sprite2D" parent="Sprites/Interface"]
 position = Vector2(502.272, 476.636)
 scale = Vector2(5.91667, 5.91667)
-texture = ExtResource("4_uy5fq")
+texture = ExtResource("5_2a1c5")
 
 [node name="Text" type="Sprite2D" parent="Sprites/Interface"]
 position = Vector2(952, 384)
 scale = Vector2(9, 10)
-texture = ExtResource("4_07yy3")
+texture = ExtResource("6_tvshw")
 
 [node name="Decoration" type="Node" parent="Sprites"]
 
 [node name="InkBottle" type="Sprite2D" parent="Sprites/Decoration"]
 position = Vector2(1228.7, 407.447)
 scale = Vector2(4.05556, 4.05556)
-texture = ExtResource("6_3qveo")
+texture = ExtResource("7_i4bx0")
 
 [node name="Feather" type="Sprite2D" parent="Sprites/Decoration"]
 position = Vector2(1220.7, 311.447)
 rotation = -0.516197
 scale = Vector2(3.9, 3.9)
-texture = ExtResource("7_8kqku")
+texture = ExtResource("8_41cma")
 
 [node name="Compass" type="Sprite2D" parent="Sprites/Decoration"]
 position = Vector2(133.045, 244.182)
 rotation = -0.304778
 scale = Vector2(1.7, 1.7)
-texture = ExtResource("8_rbmtt")
+texture = ExtResource("9_axy3e")
 
 [node name="Candle" type="Sprite2D" parent="Sprites/Decoration"]
 position = Vector2(612.172, 228.163)
 scale = Vector2(2.61172, 2.61172)
-texture = ExtResource("9_kfhju")
+texture = ExtResource("10_48cvj")
 
 [node name="TextLayer" type="Node" parent="."]
 
