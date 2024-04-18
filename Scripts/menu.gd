@@ -1,17 +1,22 @@
+@icon("res://Sprites/ink.png")
+
 extends Control
 
-@onready var curr_scene = $Main
-@onready var creditos_text = $Creditos/CreditosSubindo
-#@onready var credits_initial_pos = creditos_text.global_position
-@onready var master_audio = AudioServer.get_bus_index("Master")
+@onready var curr_scene = $MainScreen
+@onready var credits_text = $CreditsLayer/ControlText
+@onready var credits_initial_pos = credits_text.global_position
+
+#Audio
 @onready var ui_audio = AudioServer.get_bus_index("UI")
-@onready var guns_audio = AudioServer.get_bus_index("Guns")
-@onready var ambient_audio = AudioServer.get_bus_index("Ambient")
+@onready var master_audio = AudioServer.get_bus_index("Master")
+@onready var background_audio = AudioServer.get_bus_index("Ambient")
+@onready var storyteller_audio = AudioServer.get_bus_index("Storyteller")
 
 var credits_rolling = false
 
 func _ready():
-	$Main/ButtonBox/Play.grab_focus()
+	
+	$MainScreen/ButtonBox/Play.grab_focus()
 	#if OS.has_feature("mobile"):
 		#$Opcoes/VBoxContainer/CheckBox.hide()
 	#if Global.play_credits:
@@ -27,6 +32,7 @@ func change_screen(scene):
 
 func _process(delta: float) -> void:
 	pass
+	'''
 	if curr_scene == $Creditos:
 		if not credits_rolling:
 			await get_tree().create_timer(1).timeout
@@ -37,9 +43,10 @@ func _process(delta: float) -> void:
 			var scroll_speed = 30
 			if Input.is_action_pressed("ui_accept"):
 				scroll_speed = 180
-			creditos_text.global_position.y -= delta*scroll_speed
+			credits_text.global_position.y -= delta*scroll_speed
 		else:
 			credits_rolling = false
+	'''
 
 #Buttons
 func _on_play_pressed():
@@ -67,9 +74,9 @@ func _on_exit_pressed():
 	#await get_tree().create_timer(0.6).timeout
 	get_tree().quit()
 
-func _on_voltar_pressed() -> void:
-	change_screen($Main)
-	$Main/VBoxContainer/Jogar.grab_focus()
+func _on_back_pressed():
+	change_screen($MainScreen)
+	$MainScreen/ButtonBox/Play.grab_focus()
 
 #Layers
 func _toggle_fullscreen():
@@ -84,4 +91,6 @@ func _toggle_fullscreen():
 func _on_check_box_pressed():
 	pass
 	#_toggle_fullscreen()
+
+
 

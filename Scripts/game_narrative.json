@@ -1,13 +1,13 @@
 // ITENS (Inventário é um dicionário)
 [
-    {
-        "key": "door_knob",                                             // a imagem de ícone é items/[chave].png
-        "text": "Maçaneta de porta"
-    },
-    {
-        "key": "key1",
-        "text": "Chave de um porta"
-    }
+	{
+		"key": "door_knob",                                             // a imagem de ícone é items/[chave].png
+		"text": "Maçaneta de porta"
+	},
+	{
+		"key": "key1",
+		"text": "Chave de um porta"
+	}
 ]
 
 // CENAS (JOGO)
@@ -21,7 +21,7 @@
 			{   /* Se a opção não possui o item, então é "none". Assim, não precisa de itens "none" */
 				"text": "Abrir porta",					                // texto exibido na ação
 				"outcome": "A porta abriu e Diogo passou por ela",	    // texto ao selecionar a opção e possuir os itens do invenário
-                "fail": "A porta não tem maçaneta e vou precisar da chave", // resultado se não possui todos os itens
+				"fail": "A porta não tem maçaneta e vou precisar da chave", // resultado se não possui todos os itens
 				"require": ["key1", "door_knob"],		                // itens requiridos para ativar (chaves para o inventário, que é um dicionário)
 			},
 			{

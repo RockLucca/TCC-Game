@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4uu2553q7ii1"
-path="res://.godot/imported/The-Centurion.png-0c60f7b54d17f613c8d767b209f8101e.ctex"
+uid="uid://b7w0vdkdymyx3"
+path="res://.godot/imported/ScrollTeste.png-67bc618478d90ed27ed415be349bdb67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Font/The-Centurion.png"
-dest_files=["res://.godot/imported/The-Centurion.png-0c60f7b54d17f613c8d767b209f8101e.ctex"]
+source_file="res://Sprites/ScrollTeste.png"
+dest_files=["res://.godot/imported/ScrollTeste.png-67bc618478d90ed27ed415be349bdb67.ctex"]
 
 [params]
 

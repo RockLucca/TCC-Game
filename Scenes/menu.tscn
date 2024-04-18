@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://by3dim8r3bj6e"]
+[gd_scene load_steps=5 format=3 uid="uid://by3dim8r3bj6e"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_b10ie"]
+[ext_resource type="PackedScene" uid="uid://dp2onmg2mqa3a" path="res://Scenes/sounds_interface.tscn" id="2_shvxg"]
+[ext_resource type="Theme" uid="uid://clxpl8auuga33" path="res://MaterialsThemes/buttonsScoll.tres" id="2_skikm"]
+[ext_resource type="FontFile" uid="uid://ccbjc6q0qxplp" path="res://Font/Olondona.otf" id="3_ce5n6"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,34 +19,60 @@ offset_right = 1337.0
 offset_bottom = 739.0
 color = Color(0.494118, 0.494118, 0.494118, 1)
 
-[node name="Main" type="Control" parent="."]
+[node name="MainScreen" type="Control" parent="."]
 anchors_preset = 0
 
-[node name="ButtonBox" type="VBoxContainer" parent="Main"]
+[node name="ButtonBox" type="VBoxContainer" parent="MainScreen"]
 layout_mode = 0
-offset_left = 526.0
-offset_top = 324.0
-offset_right = 774.0
-offset_bottom = 671.0
+offset_left = 504.0
+offset_top = 272.0
+offset_right = 690.0
+offset_bottom = 447.0
+scale = Vector2(2.5, 2.5)
+alignment = 1
 
-[node name="Play" type="Button" parent="Main/ButtonBox"]
+[node name="Play" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+theme = ExtResource("2_skikm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ce5n6")
+theme_override_font_sizes/font_size = 40
 text = "Jogar"
 
-[node name="Instructions" type="Button" parent="Main/ButtonBox"]
+[node name="Instructions" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+theme = ExtResource("2_skikm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ce5n6")
+theme_override_font_sizes/font_size = 40
 text = "Instruções"
 
-[node name="Options" type="Button" parent="Main/ButtonBox"]
+[node name="Options" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+theme = ExtResource("2_skikm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ce5n6")
+theme_override_font_sizes/font_size = 40
 text = "Opções"
 
-[node name="Credit" type="Button" parent="Main/ButtonBox"]
+[node name="Credit" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+theme = ExtResource("2_skikm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ce5n6")
+theme_override_font_sizes/font_size = 40
 text = "Creditos"
 
-[node name="Exit" type="Button" parent="Main/ButtonBox"]
+[node name="Exit" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+theme = ExtResource("2_skikm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ce5n6")
+theme_override_font_sizes/font_size = 40
 text = "Sair
 "
 
@@ -58,12 +87,35 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="CreditsLayer" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[connection signal="pressed" from="Main/ButtonBox/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Main/ButtonBox/Instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="Main/ButtonBox/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Main/ButtonBox/Credit" to="." method="_on_credit_pressed"]
-[connection signal="pressed" from="Main/ButtonBox/Exit" to="." method="_on_exit_pressed"]
+[node name="Back" type="Button" parent="CreditsLayer"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 684.0
+offset_right = 73.0
+offset_bottom = 715.0
+text = "Voltar"
+
+[node name="ControlText" type="Control" parent="CreditsLayer"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CreditText" type="RichTextLabel" parent="CreditsLayer/ControlText"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SoundsInterface" parent="." instance=ExtResource("2_shvxg")]
+root_path = NodePath("..")
+
+[connection signal="pressed" from="MainScreen/ButtonBox/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainScreen/ButtonBox/Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="MainScreen/ButtonBox/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainScreen/ButtonBox/Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="MainScreen/ButtonBox/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CreditsLayer/Back" to="." method="_on_back_pressed"]

@@ -13,8 +13,17 @@
 
 [node name="GameInterface" type="Node2D"]
 script = ExtResource("1_th5nb")
+dialog_path = "res://Scripts/chapter_1.json"
 
 [node name="Sprites" type="Node" parent="."]
+
+[node name="Events" type="Node" parent="Sprites"]
+
+[node name="Map" type="Sprite2D" parent="Sprites/Events"]
+position = Vector2(203.497, 126.134)
+
+[node name="Frame" type="Sprite2D" parent="Sprites/Events"]
+position = Vector2(112.68, 430.539)
 
 [node name="Interface" type="Node" parent="Sprites"]
 

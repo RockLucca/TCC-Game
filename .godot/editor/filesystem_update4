@@ -1,6 +1,4 @@
-res://Scenes/Interface/interface.tscn
-res://Scenes/Interface/menu.tscn
-res://Scenes/sounds_interface.tscn
-res://Scripts/menu.gd
 res://Scenes/game_interface.tscn
+res://MaterialsThemes/buttonsScoll.tres
+res://Scripts/SceneController.gd
 res://Scenes/menu.tscn

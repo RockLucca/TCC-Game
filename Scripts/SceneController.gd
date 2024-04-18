@@ -1,20 +1,25 @@
-class_name SceneController
-extends Node2D
+@icon("res://Sprites/Compass.png")
 
-@export_file("*.json") var dialog_path = "res://Scripts/dialog.json"
+extends Node2D
+class_name SceneController
+
+const SCENE_IMAGES: String = "res://Sprites/"
+
+@export_file("*.json") var dialog_path: String = "res://Scripts/"
 @export var text_delay: float = 0.03
 
 var _dialog: Variant
-var _current_phrase: int = 0
-var _free_when_finished: bool = false
 var _current_idx: int = -1
+var _current_phrase: int = 0
 var _lock_scene: bool = false
+var _free_when_finished: bool = false
 
-@onready var _scene_text = $TextLayer/Canvas/Description/DescriptionText
+@onready var _map: Sprite2D = $Sprites/Events/Map
+@onready var _frame: Sprite2D = $Sprites/Events/Frame
 @onready var _options_text = $TextLayer/Canvas/Options/OptionsText
+@onready var _scene_text = $TextLayer/Canvas/Description/DescriptionText
 @onready var _outcome_text = $TextLayer/Canvas/Description/DescriptionText
 
-# PRIVATE METHODS ###########################################
 
 func _ready() -> void:
 	# carregar a primeira cena do arquivo json
@@ -23,28 +28,50 @@ func _ready() -> void:
 	_show_scene("first_scene")	
 
 
-func _show_scene(key: String) -> void:
-	_current_idx = -1
+func _get_scene_index(key: String) -> int:
+	var idx = -1
 	for i in range(len(_dialog)):
 		if _dialog[i]["key"] == key:
-			_current_idx = i
+			idx = i
 			break
-			
-	if _current_idx == -1:
+	
+	if idx == -1:
 		printerr(name + ": invalid scene key: " + key)
-		return
 	
-	# mostra título e texto
-	_scene_text.text = _dialog[_current_idx]["title"].to_upper() + "\n\n" + _dialog[_current_idx]["text"]
-	
-	# mostra opções
+	return idx
+
+
+func _fill_options(idx: int) -> void:
 	_options_text.text = ""
-	var options = _dialog[_current_idx]["options"]
+	var options = _dialog[idx]["options"]
 	
 	var label:int = 1
 	for opt in options:
 		_options_text.text += str(label) + "-" + opt["text"] + "\n\n" 
 		label += 1
+
+
+func _load_scene_image(scene_key: String) -> void:
+	var image_path = "%s/%s.png" % [SCENE_IMAGES, scene_key]
+	
+	var image := Image.load_from_file(image_path)
+	_map.texture = ImageTexture.create_from_image(image)
+	#_sprite.centered = false
+
+
+func _show_scene(key: String) -> void:
+	_current_idx = _get_scene_index(key)
+	if _current_idx == -1:
+		return
+	
+	# mostra título e texto
+	_scene_text.text = _dialog[_current_idx]["title"].to_upper() + "\n\n" + _dialog[_current_idx]["text"]
+	
+	# carrega o sprite da cena
+	_load_scene_image(_dialog[_current_idx]["key"])
+	
+	# mostra opções
+	_fill_options(_current_idx)
 
 
 func _reset() -> void:
