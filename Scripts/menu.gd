@@ -33,17 +33,17 @@ func change_screen(scene):
 func _process(delta: float) -> void:
 	pass
 	'''
-	if curr_scene == $Creditos:
+	if curr_scene == $CreditsLayer:
 		if not credits_rolling:
 			await get_tree().create_timer(1).timeout
 			credits_rolling = true
 		if not credits_rolling:
 			return
-		if $Creditos/CreditosSubindo/LogoMood.global_position.y >= 200:
+		if $Creditos/CreditosSubindo.global_position.y >= 200:
 			var scroll_speed = 30
 			if Input.is_action_pressed("ui_accept"):
 				scroll_speed = 180
-			credits_text.global_position.y -= delta*scroll_speed
+			credits_text.global_position.y -= delta * scroll_speed
 		else:
 			credits_rolling = false
 	'''
@@ -54,39 +54,33 @@ func _on_play_pressed():
 	get_tree().change_scene_to_file("res://Scenes/game_interface.tscn")
 
 func _on_instructions_pressed():
-	#await get_tree().create_timer(0.6).timeout
-	$Instrucoes/VBoxContainer/Voltar.grab_focus()
-	change_screen($Instrucoes)
+	$InstructionsLayer/Back.grab_focus()
+	change_screen($InstructionsLayer)
 
 func _on_options_pressed():
-	#$Opcoes/VBoxContainer/Voltar.grab_focus()
-	#await get_tree().create_timer(0.6).timeout
-	change_screen($Opcoes)
+	$OptionsLayer/Back.grab_focus()
+	change_screen($OptionsLayer)
 
 func _on_credit_pressed():
-	pass
 	#$Creditos/Voltar.grab_focus()
-	#await get_tree().create_timer(0.6).timeout
-	#creditos_text.global_position = credits_initial_pos
-	change_screen($Creditos)
+	credits_text.global_position = credits_initial_pos
+	change_screen($CreditsLayer)
 
 func _on_exit_pressed():
-	#await get_tree().create_timer(0.6).timeout
 	get_tree().quit()
 
 func _on_back_pressed():
 	change_screen($MainScreen)
 	$MainScreen/ButtonBox/Play.grab_focus()
 
-#Layers
 func _toggle_fullscreen():
 	pass
-	#Global.is_full_screen = not Global.is_full_screen
+	Global.is_full_screen = not Global.is_full_screen
 	
-	#if Global.is_full_screen:
-		#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	#else:
-		#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	if Global.is_full_screen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_check_box_pressed():
 	pass

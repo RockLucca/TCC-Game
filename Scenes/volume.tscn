@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://flxyqhw4kp5y"]
+
+[ext_resource type="Script" path="res://Scripts/audio_input.gd" id="1_m3t1t"]
+
+[node name="Volume" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_m3t1t")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Slider" type="HSlider" parent="Container"]
+layout_mode = 2
+
+[node name="Value" type="LineEdit" parent="Container"]
+layout_mode = 2
+text = "100"
+alignment = 1
+max_length = 5
+
+[connection signal="value_changed" from="Container/Slider" to="." method="_on_slider_value_changed"]
+[connection signal="text_submitted" from="Container/Value" to="." method="_on_value_text_submitted"]

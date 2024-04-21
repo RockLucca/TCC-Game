@@ -1,5 +1,6 @@
 [
 	{
+		"scene": "first_scene",
 		"key": "first_scene",
 		"title": "A primeira cena",
 		"text": "Nossa! O que aquele cara está fazendo no caminhão? Parece estar pendurado...",
@@ -23,9 +24,10 @@
 		]
 	},
 	{
+		"scene": "second_scene",
 		"key": "second_scene",
 		"title": "(Quase) A primeira cena",
-		"text": "Nossa! O que aquele cara está fazendo no caminhão? Parece estar pendurado...",
+		"text": "Nossa...",
 		"image": "second_scene.png",
 		"options": [
 			{

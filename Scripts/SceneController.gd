@@ -3,16 +3,17 @@
 extends Node2D
 class_name SceneController
 
-const SCENE_IMAGES: String = "res://Sprites/"
-
-@export_file("*.json") var dialog_path: String = "res://Scripts/"
+@export_file("*.json") var dialog_path: String = ""
 @export var text_delay: float = 0.03
 
 var _dialog: Variant
+var _chapter: int = 1
 var _current_idx: int = -1
 var _current_phrase: int = 0
 var _lock_scene: bool = false
+var _current_scene: String = ""
 var _free_when_finished: bool = false
+const SCENE_IMAGES: String = "res://Sprites/"
 
 @onready var _map: Sprite2D = $Sprites/Events/Map
 @onready var _frame: Sprite2D = $Sprites/Events/Frame
@@ -24,14 +25,15 @@ var _free_when_finished: bool = false
 func _ready() -> void:
 	# carregar a primeira cena do arquivo json
 	_dialog = _get_dialog()
-	print(name + ": init dialog. File '" + dialog_path + "' loaded")
-	_show_scene("first_scene")	
+	print(name + ": init dialog. File '" + dialog_path + "loaded")
+	_current_scene = "first_scene"
+	_show_scene(_current_scene)
 
 
 func _get_scene_index(key: String) -> int:
 	var idx = -1
 	for i in range(len(_dialog)):
-		if _dialog[i]["key"] == key:
+		if _dialog[i]["scene"] == key:
 			idx = i
 			break
 	
@@ -68,7 +70,7 @@ func _show_scene(key: String) -> void:
 	_scene_text.text = _dialog[_current_idx]["title"].to_upper() + "\n\n" + _dialog[_current_idx]["text"]
 	
 	# carrega o sprite da cena
-	_load_scene_image(_dialog[_current_idx]["key"])
+	_load_scene_image(_dialog[_current_idx]["scene"])
 	
 	# mostra opções
 	_fill_options(_current_idx)
@@ -81,7 +83,7 @@ func _reset() -> void:
 
 	if _free_when_finished:
 		queue_free()
-	
+
 
 func _get_dialog() -> Array:
 	# check of condition is true or crash the game with the error message
@@ -126,5 +128,19 @@ func select_option(opt: int):
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed:# and event.keycode == KEY_ESCAPE:
-			select_option(event.keycode - 49)	
+			select_option(event.keycode - 49)
 			print(event.keycode)
+
+
+func save_game():
+	pass
+
+
+func load_save():
+	pass
+
+
+func change_chapter():
+	dialog_path = "res://Scripts/chapter_2.json"
+	_dialog = _get_dialog()
+	_show_scene(_current_scene)
