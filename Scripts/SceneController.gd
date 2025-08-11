@@ -26,7 +26,7 @@ func _ready() -> void:
 	# carregar a primeira cena do arquivo json
 	_dialog = _get_dialog()
 	print(name + ": init dialog. File '" + dialog_path + "loaded")
-	_current_scene = "first_scene"
+	_current_scene = "new_game_scene"
 	_show_scene(_current_scene)
 
 
@@ -43,6 +43,7 @@ func _get_scene_index(key: String) -> int:
 	return idx
 
 
+#
 func _fill_options(idx: int) -> void:
 	_options_text.text = ""
 	var options = _dialog[idx]["options"]
@@ -67,7 +68,8 @@ func _show_scene(key: String) -> void:
 		return
 	
 	# mostra título e texto
-	_scene_text.text = _dialog[_current_idx]["title"].to_upper() + "\n\n" + _dialog[_current_idx]["text"]
+	#_scene_text.text = _dialog[_current_idx]["title"].to_upper() + "\n\n" + _dialog[_current_idx]["text"]
+	_scene_text.text = _dialog[_current_idx]["text"]
 	
 	# carrega o sprite da cena
 	_load_scene_image(_dialog[_current_idx]["scene"])

@@ -55,23 +55,27 @@ texture = ExtResource("6_tvshw")
 [node name="Decoration" type="Node" parent="Sprites"]
 
 [node name="InkBottle" type="Sprite2D" parent="Sprites/Decoration"]
+visible = false
 position = Vector2(1228.7, 407.447)
 scale = Vector2(4.05556, 4.05556)
 texture = ExtResource("7_i4bx0")
 
 [node name="Feather" type="Sprite2D" parent="Sprites/Decoration"]
+visible = false
 position = Vector2(1220.7, 311.447)
 rotation = -0.516197
 scale = Vector2(3.9, 3.9)
 texture = ExtResource("8_41cma")
 
 [node name="Compass" type="Sprite2D" parent="Sprites/Decoration"]
+visible = false
 position = Vector2(133.045, 244.182)
 rotation = -0.304778
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("9_axy3e")
 
 [node name="Candle" type="Sprite2D" parent="Sprites/Decoration"]
+visible = false
 position = Vector2(612.172, 228.163)
 scale = Vector2(2.61172, 2.61172)
 texture = ExtResource("10_48cvj")

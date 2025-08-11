@@ -6,6 +6,7 @@ var play_credits = false
 
 
 func _process(_delta: float) -> void:
+	'''
 	if Input.is_action_just_pressed("fullscreen"):
 		Global.is_full_screen = not Global.is_full_screen
 
@@ -13,3 +14,4 @@ func _process(_delta: float) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	'''

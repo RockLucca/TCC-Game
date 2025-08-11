@@ -12,11 +12,17 @@ config_version=5
 
 config/name="TCC Game"
 run/main_scene="res://Scenes/menu.tscn"
-config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.3", "Mobile")
+config/icon="res://Sprites/Compass.png"
+
+[audio]
+
+buses/default_bus_layout="res://SoundEffects/default_bus_layout.tres"
+general/text_to_speech=true
 
 [autoload]
 
+Config="*res://Scripts/config.gd"
 Global="*res://Scripts/global.gd"
 
 [display]
@@ -35,6 +41,10 @@ folder_colors={
 "res://SoundEffects/": "yellow",
 "res://Sprites/": "teal"
 }
+
+[gui]
+
+theme/custom_font="res://Font/ARIAL.TTF"
 
 [rendering]
 

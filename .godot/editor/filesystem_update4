@@ -1,7 +1,8 @@
-res://Scenes/game_interface.tscn
+res://Scenes/menu.tscn
 res://Scripts/SceneController.gd
 res://MaterialsThemes/buttonsScoll.tres
-res://Scenes/menu.tscn
-res://Scenes/volume.tscn
-res://Scenes/pause.tscn
+res://Scripts/DaltonicScript.gd
+res://MaterialsThemes/DaltonicShader.gdshader
+res://Scenes/game_interface.tscn
 res://Scripts/menu.gd
+res://Scripts/config.gd

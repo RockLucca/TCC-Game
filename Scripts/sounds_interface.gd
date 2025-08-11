@@ -35,7 +35,6 @@ func install_sounds(node: Node) -> void:
 		# recursion
 		install_sounds(i)
 
-
 func ui_sfx_play(sound : String) -> void:
 	print(is_inside_tree())
 	printt("Playing sound:", sound)

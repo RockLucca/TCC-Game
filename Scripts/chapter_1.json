@@ -1,15 +1,47 @@
 [
 	{
-		"scene": "first_scene",
-		"key": "first_scene",
-		"title": "A primeira cena",
-		"text": "Nossa! O que aquele cara está fazendo no caminhão? Parece estar pendurado...",
-		"image": "first_scene.png",
+		"scene": "new_game_scene",
+		"key": "new_game_scene",
+		"local": "Casa do Soldado",
+		"text": "
+			Tudo começou como mais um dia normal na vida de pequeno soldado.
+			Os passaros cantavam, o sol raiava, era hora de um bom café para começar o dia.
+			Passado um tempo, o soldadocom seu café em mãos, o sino do Castelo do Rei badalava, era o chamado do Rei para a Guarda Real",
+		"image": "new_game_scene.png",
 		"options": [
 			{
-				"text": "Ir em frente",
+				"text": "Terminar sua xicara de café",
+				"outcome": "Mas não poderia ir ao trabalho antes de terminar seu cafézinho",
+				"next": "choose_coffee"
+			},
+			{
+				"text": "Voltar para a cama",
+				"outcome": "O sino novamente toca novamente, mas o soldado decide se aproximar de sua cama",
+				"next": "choose_bed"
+			},
+			{
+				"text": "Olhar aos arredores",
+				"outcome": "A casa era pequena, mas honesta, uma cama simples, uma pequena mesa para 2 pessoas, uma lareira e uma cozinha, tudo junto no mesmo espaço, sem paredes para dividir os comodos",
+				"next": "choose_lock_arround"
+			},
+			{
+				"text": "Seguir para o castelo do Rei",
+				"outcome": "A casa era pequena, mas honesta, uma cama simples, uma pequena mesa para 2 pessoas, uma lareira e uma cozinha, tudo junto no mesmo espaço, sem paredes para dividir os comodos",
+				"next": "choose_continue_adventure"
+			}
+		]
+	},
+	{
+		"scene": "choose_coffee",
+		"key": "choose_coffee",
+		"title": "(Quase) A primeira cena",
+		"text": "Nossa...",
+		"image": "choose_coffee.png",
+		"options": [
+			{
+				"text": "Voltar",
 				"outcome": "Não consigo fazer isso",
-				"next": "none"
+				"next": "first_scene"
 			},
 			{
 				"text": "Não ir em frente",
@@ -19,15 +51,16 @@
 			{
 				"text": "Fazer nada",
 				"outcome": "De repente, Adol sente um força que o levante e ele é transportado à outro lugar.",
-				"next": "second_scene"
+				"next": "none"
 			}
 		]
 	},
+	
 	{
-		"scene": "second_scene",
-		"key": "second_scene",
+		"scene": "coffe_scene",
+		"key": "coffe_scene",
 		"title": "(Quase) A primeira cena",
-		"text": "Nossa...",
+		"text": "",
 		"image": "second_scene.png",
 		"options": [
 			{

@@ -7,7 +7,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_m3t1t")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="RichTextLabel" parent="."]
 layout_mode = 2
 
 [node name="Container" type="HBoxContainer" parent="."]

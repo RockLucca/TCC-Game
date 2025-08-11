@@ -1,13 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://by3dim8r3bj6e"]
+[gd_scene load_steps=12 format=3 uid="uid://by3dim8r3bj6e"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_b10ie"]
+[ext_resource type="Texture2D" uid="uid://b1q8c457y7hu8" path="res://Sprites/Background_2.png" id="2_bgmgq"]
 [ext_resource type="PackedScene" uid="uid://dp2onmg2mqa3a" path="res://Scenes/sounds_interface.tscn" id="2_shvxg"]
 [ext_resource type="Theme" uid="uid://clxpl8auuga33" path="res://MaterialsThemes/buttonsScoll.tres" id="2_skikm"]
-[ext_resource type="FontFile" uid="uid://ccbjc6q0qxplp" path="res://Font/Olondona.otf" id="3_ce5n6"]
+[ext_resource type="Texture2D" uid="uid://b2fdaw7tsfai6" path="res://Sprites/Background_1.png" id="3_aumxe"]
 [ext_resource type="Texture2D" uid="uid://rfjo7yk3dley" path="res://icon.svg" id="4_0l7xb"]
 [ext_resource type="Texture2D" uid="uid://cj4qflbj38mqj" path="res://Sprites/logo_gamepad_80x80.png" id="4_wtqg2"]
 [ext_resource type="Texture2D" uid="uid://bssndlvdps054" path="res://Sprites/teclado.png" id="5_ders5"]
 [ext_resource type="PackedScene" uid="uid://flxyqhw4kp5y" path="res://Scenes/volume.tscn" id="5_x5ebn"]
+[ext_resource type="Shader" path="res://MaterialsThemes/DaltonicShader.gdshader" id="10_6j4e8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b3hhh"]
+shader = ExtResource("10_6j4e8")
+shader_parameter/filter_type = 0
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -17,67 +23,92 @@ script = ExtResource("1_b10ie")
 [node name="Background" type="Control" parent="."]
 anchors_preset = 0
 
+[node name="Panel" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ColorRect" type="ColorRect" parent="Background"]
-visible = false
 layout_mode = 0
 offset_right = 1337.0
 offset_bottom = 739.0
 color = Color(0.494118, 0.494118, 0.494118, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(647.353, 364)
+scale = Vector2(2.73529, 2.73529)
+texture = ExtResource("2_bgmgq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(651.059, 368)
+scale = Vector2(2.70588, 2.70588)
+texture = ExtResource("3_aumxe")
+
 [node name="MainScreen" type="Control" parent="."]
 anchors_preset = 0
 
 [node name="ButtonBox" type="VBoxContainer" parent="MainScreen"]
-layout_mode = 0
-offset_left = 504.0
-offset_top = 272.0
-offset_right = 690.0
-offset_bottom = 447.0
-scale = Vector2(2.5, 2.5)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 568.0
+offset_top = 368.0
+offset_right = 745.0
+offset_bottom = 629.0
+grow_vertical = 2
 alignment = 1
 
 [node name="Play" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_skikm")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ce5n6")
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/align_to_largest_stylebox = 100
+theme_override_font_sizes/font_size = 35
 text = "Jogar"
 
 [node name="Instructions" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_skikm")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ce5n6")
-theme_override_font_sizes/font_size = 40
+theme_override_constants/align_to_largest_stylebox = 100
+theme_override_font_sizes/font_size = 35
 text = "Instruções"
 
 [node name="Options" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_skikm")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ce5n6")
-theme_override_font_sizes/font_size = 40
+theme_override_constants/align_to_largest_stylebox = 100
+theme_override_font_sizes/font_size = 35
 text = "Opções"
 
 [node name="Credit" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_skikm")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ce5n6")
-theme_override_font_sizes/font_size = 40
+theme_override_constants/align_to_largest_stylebox = 100
+theme_override_font_sizes/font_size = 35
 text = "Creditos"
 
 [node name="Exit" type="Button" parent="MainScreen/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_skikm")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ce5n6")
-theme_override_font_sizes/font_size = 40
+theme_override_constants/align_to_largest_stylebox = 100
+theme_override_font_sizes/font_size = 35
 text = "Sair
 "
 
@@ -121,6 +152,18 @@ offset_top = 384.0
 offset_right = 591.0
 offset_bottom = 442.0
 
+[node name="VoicesOptions" type="OptionButton" parent="OptionsLayer/Options"]
+layout_mode = 2
+
+[node name="FontOptions" type="OptionButton" parent="OptionsLayer/Options"]
+layout_mode = 2
+
+[node name="Volume" parent="OptionsLayer/Options" instance=ExtResource("5_x5ebn")]
+layout_mode = 2
+
+[node name="Label" parent="OptionsLayer/Options/Volume" index="0"]
+text = "Volume Geral"
+
 [node name="VolumeInterface2" parent="OptionsLayer/Options" instance=ExtResource("5_x5ebn")]
 layout_mode = 2
 audio_channel_name = "UI"
@@ -141,6 +184,9 @@ audio_channel_name = "Ambient"
 
 [node name="Label" parent="OptionsLayer/Options/VolumeAmbient" index="0"]
 text = "[center]Volume do Ambiente[/center]"
+
+[node name="DaltonicButton" type="OptionButton" parent="OptionsLayer/Options"]
+layout_mode = 2
 
 [node name="Back" type="Button" parent="OptionsLayer"]
 layout_mode = 0
@@ -201,15 +247,25 @@ text = "[center][b]Desenvolvido por[/b][/center]
 [node name="SoundsInterface" parent="." instance=ExtResource("2_shvxg")]
 root_path = NodePath("..")
 
+[node name="DaltonicFilter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_b3hhh")
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 728.0
+mouse_filter = 2
+color = Color(0.00392157, 0.00392157, 0.00392157, 0.321569)
+
 [connection signal="pressed" from="MainScreen/ButtonBox/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainScreen/ButtonBox/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="MainScreen/ButtonBox/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainScreen/ButtonBox/Credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="MainScreen/ButtonBox/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="InstructionsLayer/Back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="OptionsLayer/Options/DaltonicButton" to="." method="_on_daltonic_button_item_selected"]
 [connection signal="pressed" from="OptionsLayer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CreditsLayer/Back" to="." method="_on_back_pressed"]
 
+[editable path="OptionsLayer/Options/Volume"]
 [editable path="OptionsLayer/Options/VolumeInterface2"]
 [editable path="OptionsLayer/Options/VolumeStoryteller2"]
 [editable path="OptionsLayer/Options/VolumeAmbient"]

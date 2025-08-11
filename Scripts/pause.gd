@@ -57,13 +57,6 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
-
-# Gambiarra para fazer o menu de pause virar o de Gameover
-func set_game_over_screen():
-	_is_game_over = true
-	$UI/Label.text = "Game Over"
-	$UI/MainPause/Resume.text = "Tentar de novo"
-	pause_menu()
 	
 func _on_return_pressed():
 	get_tree().paused = false
