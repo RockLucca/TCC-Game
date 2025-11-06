@@ -26,7 +26,7 @@
 			},
 			{
 				"text": "Seguir para o castelo do Rei",
-				"outcome": "A casa era pequena, mas honesta, uma cama simples, uma pequena mesa para 2 pessoas, uma lareira e uma cozinha, tudo junto no mesmo espaço, sem paredes para dividir os comodos",
+				"outcome": "O chamado do sino era sinal de aventura, hora da ação",
 				"next": "choose_continue_adventure"
 			}
 		]

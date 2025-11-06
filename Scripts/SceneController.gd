@@ -42,7 +42,6 @@ func _get_scene_index(key: String) -> int:
 	
 	return idx
 
-
 #
 func _fill_options(idx: int) -> void:
 	_options_text.text = ""
@@ -53,7 +52,7 @@ func _fill_options(idx: int) -> void:
 		_options_text.text += str(label) + "-" + opt["text"] + "\n\n" 
 		label += 1
 
-
+#Load image for scene
 func _load_scene_image(scene_key: String) -> void:
 	var image_path = "%s/%s.png" % [SCENE_IMAGES, scene_key]
 	
@@ -66,16 +65,35 @@ func _show_scene(key: String) -> void:
 	_current_idx = _get_scene_index(key)
 	if _current_idx == -1:
 		return
-	
-	# mostra título e texto
-	#_scene_text.text = _dialog[_current_idx]["title"].to_upper() + "\n\n" + _dialog[_current_idx]["text"]
+
+	# mostra texto
+	var scene_data = _dialog[_current_idx]
 	_scene_text.text = _dialog[_current_idx]["text"]
-	
+
 	# carrega o sprite da cena
-	_load_scene_image(_dialog[_current_idx]["scene"])
-	
+	_load_scene_image(scene_data["scene"])
+
 	# mostra opções
 	_fill_options(_current_idx)
+	
+	if TTSManager.enabled:
+		var narration_text = ""
+
+		# Adiciona a localização da cena (ex: "Casa do Soldado")
+		if scene_data.has("local"):
+			narration_text += "Local: " + scene_data["local"] + ". "
+
+		# Adiciona o texto descritivo
+		narration_text += scene_data["text"].strip_edges() + " "
+
+		# Lê as opções disponíveis
+		if scene_data.has("options"):
+			narration_text += "Suas opções são: "
+			for option in scene_data["options"]:
+				narration_text += option["text"] + ". "
+
+		# Fala tudo de uma vez
+		TTSManager.speak(narration_text)
 
 
 func _reset() -> void:
