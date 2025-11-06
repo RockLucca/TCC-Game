@@ -6,10 +6,10 @@ extends Control
 @onready var curr_scene = $MainScreen
 @onready var credits_text = $CreditsLayer/ControlText
 @onready var credits_initial_pos = credits_text.global_position
-@onready var color_rect = $DaltonicFilter
+#@onready var color_rect = $DaltonicFilter
 
 #Daltonic
-@onready var daltonic_filter_rect = $DaltonicFilter
+#@onready var daltonic_filter_rect = "ColorRect"
 @onready var daltonic_button = $OptionsLayer/Options/DaltonicButton
 
 #Audio
@@ -34,6 +34,7 @@ func _ready():
 
 func setup_daltonic_options():
 	# Add daltonic options
+	filter_menu.clear()
 	filter_menu.add_item("Normal")
 	filter_menu.add_item("Protanopia")
 	filter_menu.add_item("Deuteranopia")
@@ -42,18 +43,19 @@ func setup_daltonic_options():
 	# Define o selecionado com base na config global
 	filter_menu.select(Config.get_filter())
 
-	# Conecta o sinal
-	filter_menu.connect("item_selected", Callable(self, "_on_filter_selected"))
-	
-	if daltonic_filter_rect.material:
-		daltonic_filter_rect.material.set("shader_parameter/filter_type", Config.get_filter())
+	# Conecta o sinal (evita duplicar se já conectado)
+	if not filter_menu.is_connected("item_selected", Callable(self, "_on_daltonic_button_item_selected")):
+		filter_menu.connect("item_selected", Callable(self, "_on_daltonic_button_item_selected"))
 
-	# Conecta ao sinal para mudar em tempo real
-	Config.connect("filter_changed", Callable(self, "_on_filter_changed"))
+	# Atualiza o filtro visual imediatamente
+	Config.apply_current_filter()
+
+	# Conecta para reagir em tempo real
+	if not Config.is_connected("filter_changed", Callable(self, "_on_filter_changed")):
+		Config.connect("filter_changed", Callable(self, "_on_filter_changed"))
 
 func _on_filter_changed(new_type: int):
-	if daltonic_filter_rect.material:
-		daltonic_filter_rect.material.set("shader_parameter/filter_type", new_type)
+	filter_menu.select(new_type)
 
 func change_screen(scene):
 	credits_rolling = false
@@ -111,6 +113,8 @@ func read_button(text):
 	DisplayServer.tts_speak(text, speaker)
 
 
-func _on_daltonic_button_item_selected(index):
-	Config.set_filter(index)
-	#save_filter_setting(index)
+func _on_daltonic_button_item_selected(index) -> void:
+	DaltonicFilter.set_filter_type(index)
+
+func _on_intensity_value_changed(value):
+	DaltonicFilter.set_intensity(value)

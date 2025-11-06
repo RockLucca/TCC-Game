@@ -1,3 +1,5 @@
+HSlider
+CanvasLayer
 OptionButton
 Panel
 ColorRect
@@ -10,5 +12,3 @@ RichTextLabel
 VBoxContainer
 Label
 LineEdit
-HSlider
-HBoxContainer

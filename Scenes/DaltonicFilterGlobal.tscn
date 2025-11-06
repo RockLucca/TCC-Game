@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2hn4keg1ubmk"]
+
+[ext_resource type="Shader" path="res://MaterialsThemes/DaltonicShader.gdshader" id="1_7au7u"]
+[ext_resource type="Script" path="res://Scripts/daltonic_filter_global.gd" id="1_wwbjo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0q6j"]
+shader = ExtResource("1_7au7u")
+shader_parameter/filter_type = 0
+shader_parameter/intensity = 1.0
+
+[node name="DaltonicFilter" type="CanvasLayer"]
+layer = 100
+follow_viewport_enabled = true
+script = ExtResource("1_wwbjo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+top_level = true
+material = SubResource("ShaderMaterial_p0q6j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

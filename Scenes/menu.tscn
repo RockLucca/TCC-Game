@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://by3dim8r3bj6e"]
+[gd_scene load_steps=10 format=3 uid="uid://by3dim8r3bj6e"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_b10ie"]
 [ext_resource type="Texture2D" uid="uid://b1q8c457y7hu8" path="res://Sprites/Background_2.png" id="2_bgmgq"]
@@ -9,11 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cj4qflbj38mqj" path="res://Sprites/logo_gamepad_80x80.png" id="4_wtqg2"]
 [ext_resource type="Texture2D" uid="uid://bssndlvdps054" path="res://Sprites/teclado.png" id="5_ders5"]
 [ext_resource type="PackedScene" uid="uid://flxyqhw4kp5y" path="res://Scenes/volume.tscn" id="5_x5ebn"]
-[ext_resource type="Shader" path="res://MaterialsThemes/DaltonicShader.gdshader" id="10_6j4e8"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b3hhh"]
-shader = ExtResource("10_6j4e8")
-shader_parameter/filter_type = 0
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -31,7 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Background"]
+[node name="Temp" type="ColorRect" parent="Background"]
 layout_mode = 0
 offset_right = 1337.0
 offset_bottom = 739.0
@@ -188,6 +183,11 @@ text = "[center]Volume do Ambiente[/center]"
 [node name="DaltonicButton" type="OptionButton" parent="OptionsLayer/Options"]
 layout_mode = 2
 
+[node name="Intensity" type="HSlider" parent="OptionsLayer/Options"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
 [node name="Back" type="Button" parent="OptionsLayer"]
 layout_mode = 0
 offset_right = 8.0
@@ -247,14 +247,6 @@ text = "[center][b]Desenvolvido por[/b][/center]
 [node name="SoundsInterface" parent="." instance=ExtResource("2_shvxg")]
 root_path = NodePath("..")
 
-[node name="DaltonicFilter" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_b3hhh")
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 728.0
-mouse_filter = 2
-color = Color(0.00392157, 0.00392157, 0.00392157, 0.321569)
-
 [connection signal="pressed" from="MainScreen/ButtonBox/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainScreen/ButtonBox/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="MainScreen/ButtonBox/Options" to="." method="_on_options_pressed"]
@@ -262,6 +254,7 @@ color = Color(0.00392157, 0.00392157, 0.00392157, 0.321569)
 [connection signal="pressed" from="MainScreen/ButtonBox/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="InstructionsLayer/Back" to="." method="_on_back_pressed"]
 [connection signal="item_selected" from="OptionsLayer/Options/DaltonicButton" to="." method="_on_daltonic_button_item_selected"]
+[connection signal="value_changed" from="OptionsLayer/Options/Intensity" to="." method="_on_intensity_value_changed"]
 [connection signal="pressed" from="OptionsLayer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CreditsLayer/Back" to="." method="_on_back_pressed"]
 

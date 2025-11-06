@@ -1,8 +1,7 @@
-res://Scenes/menu.tscn
+res://Scenes/game_interface.tscn
+res://MaterialsThemes/DaltonicShader.gdshader
 res://Scripts/SceneController.gd
 res://MaterialsThemes/buttonsScoll.tres
-res://Scripts/DaltonicScript.gd
-res://MaterialsThemes/DaltonicShader.gdshader
-res://Scenes/game_interface.tscn
-res://Scripts/menu.gd
-res://Scripts/config.gd
+res://Scenes/menu.tscn
+res://Scenes/DaltonicFilterGlobal.tscn
+res://Scripts/daltonic_filter_global.gd
