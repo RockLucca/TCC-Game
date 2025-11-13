@@ -1,7 +1,0 @@
-res://Scripts/menu.gd
-res://Scenes/menu.tscn
-res://MaterialsThemes/DaltonicShader.gdshader
-res://Scripts/SceneController.gd
-res://MaterialsThemes/buttonsScoll.tres
-res://Scenes/game_interface.tscn
-res://Scripts/chapter_1.json

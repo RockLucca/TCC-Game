@@ -1,3 +1,6 @@
+Sprite2D
+TileMapLayer
+TileMap
 VBoxContainer
 CenterContainer
 Container
@@ -7,9 +10,5 @@ CanvasLayer
 OptionButton
 Panel
 ColorRect
-Sprite2D
 Parallax2D
-TileMap
 TextEdit
-Button
-RichTextLabel

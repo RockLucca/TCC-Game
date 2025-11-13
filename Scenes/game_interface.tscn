@@ -33,7 +33,7 @@ scale = Vector2(10, 10)
 texture = ExtResource("2_t1qwy")
 
 [node name="Scroll" type="Sprite2D" parent="Sprites/Interface"]
-position = Vector2(336, 152)
+position = Vector2(356.181, 146.114)
 scale = Vector2(7, 5.5)
 texture = ExtResource("3_0oich")
 
