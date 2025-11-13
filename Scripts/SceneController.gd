@@ -54,6 +54,7 @@ func _fill_options(idx: int) -> void:
 
 #Load image for scene
 func _load_scene_image(scene_key: String) -> void:
+	pass
 	var image_path = "%s/%s.png" % [SCENE_IMAGES, scene_key]
 	
 	var image := Image.load_from_file(image_path)
@@ -132,7 +133,7 @@ func select_option(opt: int):
 	if opt < 0 or opt >= len(options):
 		return
 	# mostra o resultado da escolha
-	_outcome_text.text = options[opt]["outcome"]
+	#_outcome_text.text = options[opt]["outcome"]
 	
 	_lock_scene = true
 	await get_tree().create_timer(1.5).timeout

@@ -19,6 +19,8 @@ const DEFAULT_SAVE := {
 	}
 }
 
+signal filter_changed(new_filter_type)
+
 # --- AO INICIAR ---
 func _ready() -> void:
 	# Garante que a pasta de saves existe
@@ -96,6 +98,48 @@ func list_saves() -> Array:
 		file_name = dir.get_next()
 	dir.list_dir_end()
 	return saves
+
+# =======================================================
+# ============= PROGRESSO E ESTATÍSTICAS ================
+# =======================================================
+
+# Define dados temporários de progresso (sem sobrescrever o save até salvar)
+var current_progress := {
+	"scene": "",          # Cena ou chave atual
+	"choices": [],        # Lista de escolhas feitas
+	"playtime": 0.0       # Tempo jogado acumulado
+}
+
+# Define o número total de finais possíveis (ajuste conforme o jogo cresce)
+const TOTAL_ENDINGS := 40
+
+# Atualiza a cena atual (para salvar em checkpoints)
+func update_progress(scene_name: String, choices: Array = []) -> void:
+	current_progress["scene"] = scene_name
+	current_progress["choices"] = choices
+	_save_to_file()
+
+# Salva o progresso do jogador dentro do JSON atual
+func save_checkpoint() -> void:
+	if current_save_path == "":
+		return
+	save_data["progresso"] = current_progress
+	_save_to_file()
+
+# Retorna quantos finais o jogador já descobriu
+func get_unlocked_endings_count() -> int:
+	return save_data["finais_obtidos"].size()
+
+# Retorna a porcentagem de finais encontrados
+func get_completion_percentage() -> float:
+	return float(get_unlocked_endings_count()) / float(TOTAL_ENDINGS) * 100.0
+
+# Redefine completamente o progresso (sem apagar configs)
+func reset_progress() -> void:
+	save_data["finais_obtidos"].clear()
+	current_progress = {"scene": "", "choices": [], "playtime": 0.0}
+	_save_to_file()
+	print("Progresso reiniciado.")
 
 
 # =======================================================

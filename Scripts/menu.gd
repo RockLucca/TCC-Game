@@ -39,7 +39,7 @@ func change_screen(scene):
 
 #Buttons interactions
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Scenes/game_interface.tscn")
+	get_tree().change_scene_to_file("res://Scenes/save_select.tscn")
 
 func _on_instructions_pressed():
 	$InstructionsLayer/Back.grab_focus()
