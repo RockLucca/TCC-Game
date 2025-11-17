@@ -1,0 +1,243 @@
+[
+	{
+		"scene": "new_game_scene",
+		"key": "new_game_scene",
+		"local": "Casa do Soldado",
+		"image": "despertar.png",
+		"text": "
+			Mais um dia começava nascia no pequeno reino de Astoria, uma vila cheia de familias de camponeses e aventureiros no aguardo de novas missões.
+			Os passaros cantavam, o sol levantava no horizonte, era hora de um bom café para começar o dia.
+			E não demorou muito para o chamado da aventura surgir, o Grande sino do Castelo do Rei badalava, era o chamado do Rei para soldados e aventureiros
+			O aventureiro salta da cama no susto com o grande sino tocando, ainda com e olhos se ajustando à luz do dia, ele se pergunta:
+			O que o aventureiro deveria fazer?",
+		"options": [
+			{
+				"text": "Tomar uma deliciosa xicara de café!",
+				"next": "choose_coffee"
+			},
+			{
+				"text": "Voltar para a cama e tentar dormir mais um pouco",
+				"next": "choose_bed"
+			},
+			{
+				"text": "Olhar aos arredores",
+				"next": "choose_lock_around"
+			},
+			{
+				"text": "Seguir para o castelo do Rei",
+				"next": "choose_castle_scene"
+			}
+		]
+	},
+
+	{
+		"scene": "choose_coffee",
+		"key": "choose_coffee",
+		"image": "choose_coffee.png",
+		"text": "
+			Ha, um dia cheio de aventuras começa com uma boa xicara de café! O aventureiro se dirige à cozinha para preparar seu café matinal.
+			Após alguns minutos preparando e saboreando seu café, ele se sente revigorado e pronto para enfrentar o que o dia reserva. Agora a pergunta é: 
+			O que o aventureiro deveria fazer?",
+		"options": [
+			{
+				"text": "Tomar mais um pouco de café",
+				"next": "choose_more_coffee"
+			},
+			{
+				"text": "Olhar pela janela",
+				"next": "choose_look_out_window_after_coffee"
+			},
+			{
+				"text": "Olhar os arredores da casa",
+				"next": "choose_look_around_after_coffee"
+			},
+			{
+				"text": "Seguir para o castelo do Rei",
+				"next": "choose_castle_scene"
+			}
+		]
+	},
+
+	{
+		"scene": "choose_more_coffee",
+		"key": "choose_more_coffee",
+		"image": "choose_more_coffee.png",
+		"text": "
+			Bem, parando para pensar, talvez mais um pouco de café não seria uma má ideia. 
+			O aventureiro se serve de mais uma xícara e saboreia o aroma e o sabor reconfortante do café fresco. 
+			Com a mente clara e o corpo energizado, ele se sente ainda mais preparado para enfrentar o dia cheio de aventuras que o aguarda. 
+			Agora, com a energia renovada, ele se pergunta: 
+			O que o aventureiro deveria fazer?",
+		"options": [
+			{
+				"text": "Tomar ainda mais café",
+				"next": "choose_too_much_coffee"
+			},
+			{
+				"text": "Olhar pela janela",
+				"next": "choose_look_out_window_after_coffee"
+			},
+			{
+				"text": "Olhar os arredores da casa",
+				"next": "choose_look_around_after_coffee"
+			},
+			{
+				"text": "Continuar para o castelo do Rei",
+				"next": "choose_castle_scene"
+			},
+			
+		]
+	},
+	
+	{
+		"scene": "choose_look_around",
+		"key": "choose_look_around",
+		"image": "look_around.png",
+		"text": "
+			Ao redor é possivel ver uma simples cabana de madeira de um simples aventureiro, com uma cama, uma mesa com cadeiras, uma pequena cozinha, algumas janelas e uma porta que leva para fora.
+			O aventureiro se pergunta:
+			O que o aventureiro deveria fazer?",
+		"options": [
+			{
+				"text": "Voltar a dormir mais um pouco",			
+				"next": "choose_bed"
+			},
+			{
+				"text": "Tomar uma xicara de café",
+				"next": "choose_coffee"
+			},
+			{
+				"text": "Olhar pela janela",
+				"next": "choose_look_out_window"
+			},
+			{
+				"text": "Seguir para o castelo do Rei",
+				"next": "choose_castle_scene"
+			}
+
+		]
+	},
+
+	{
+		"scene": "choose_look_around_after_coffee",
+		"key": "choose_look_around_after_coffee",
+		"image": "look_around.png",
+		"text": "
+			Ao redor é possivel ver uma simples cabana de madeira de um simples aventureiro, com uma cama, uma mesa com cadeiras, uma pequena cozinha, algumas janelas e uma porta que leva para fora.
+			Porem, agora com a mente mais desperta após o café é possivel notar alguns detalhes que antes passaram despercebidos, como um bau no canto da cama.
+			O aventureiro se pergunta:
+			O que o aventureiro deveria fazer?",
+		"options": [
+			{
+				"text": "Olhar o bau",			
+				"next": "choose_open_chest"
+			},
+			{
+				"text": "Tomar mais um pouco de café",
+				"next": "choose_more_coffee"
+			},
+			{
+				"text": "Olhar pela janela",
+				"next": "choose_look_out_window_after_coffee"
+			},
+			{
+				"text": "Seguir para o castelo do Rei",
+				"next": "choose_castle_scene"
+			}
+
+		]
+	},
+
+	{
+		"scene": "choose_look_out_window",
+		"key": "choose_look_out_window",
+		"image": "look_out_window.png",
+		"text": "
+			O aventureiro se aproxima da janela e olha para fora. Na parte de tras de sua cabana ele consegue ver a floresta que o cerca, mas o que lhe chama atenção é a montanha do forjador logo no horizonte.
+			Sua espada estava sendo reforjada lá, e talvez seria uma boa ideia busca-la.
+			O aventureiro se pergunta:
+			O que o aventureiro deveria fazer?",
+		"options": [
+			{
+				"text": "Pular da janela e ir para a montanha do forjador",
+				"next": "choose_go_to_mountain"
+			},
+			{
+				"text": "Olhar os arredores da casa",
+				"next": "choose_look_around"
+			},
+			{
+				"text": "Tomar uma xicara de café",
+				"next": "choose_coffee"
+			},
+			{
+				"text": "Seguir para o castelo do Rei",
+				"next": "choose_castle_scene"
+			}
+		]
+	},
+
+	{
+		"scene": "choose_look_out_window_after_coffee",
+		"key": "choose_look_out_window_after_coffee",
+		"image": "look_out_window.png",
+		"text": "
+			O aventureiro se aproxima da janela e olha para fora. Na parte de tras de sua cabana ele consegue ver a floresta que o cerca, mas o que lhe chama atenção é a montanha do forjador logo no horizonte.
+			Sua espada estava sendo reforjada lá, e talvez seria uma boa ideia busca-la.
+			O aventureiro se pergunta:
+			O que o aventureiro deveria fazer?",
+		"options": [
+			{
+				"text": "Pular da janela e ir para a montanha do forjador",
+				"next": "choose_go_to_mountain"
+			},
+			{
+				"text": "Olhar os arredores da casa",
+				"next": "choose_look_around_after_coffee"
+			},
+			{
+				"text": "Tomar mais um pouco de café",
+				"next": "choose_more_coffee"
+			},
+			{
+				"text": "Seguir para o castelo do Rei",
+				"next": "choose_castle_scene"
+			}
+		]
+	},
+	{
+		"scene": "choose_bed",
+		"key": "choose_bed",
+		"image": "choose_bed.png",
+		"text": "
+			O aventureiro decide que mais alguns minutinhos de sono não fariam mal. 
+			Ele se aconchega de volta em sua cama, fechando os olhinhos e dando o ultimo bocejo.
+			Enquanto o sol continua a subir no céu, o aventureiro sonha com as aventuras que o aguardam.
+			",
+		"options": [
+			{
+				"text": "Você decidiu dormir mais 5 minutinhos, mas acabou dormindo o dia todo. Tem dias que precisamos descansar mesmo!",
+				"final": "bed_ending"
+			}
+		]
+	},
+
+	
+	{
+		"scene": "choose_castle_scene",
+		"key": "choose_castle_scene",
+		"image": "choose_castle_scene.png",
+		"text": "
+			O aventureiro decide que é hora de seguir para o castelo do Rei e atender ao chamado da aventura.
+			Ele se veste rapidamente, pega sua mochila com equipamentos essenciais e sai pela porta da cabana, sentindo a brisa fresca da manhã em seu rosto.
+			Caminhando pelas ruas da vila, ele observa os outros aventureiros e soldados se dirigindo para o castelo, todos ansiosos pelo que o dia reserva.
+			Com determinação em seus olhos, o aventureiro segue em direção ao castelo, pronto para enfrentar qualquer desafio que possa surgir em seu caminho.
+			O que o aventureiro deveria fazer?",
+		"options": [
+			{
+				"text": "Continuar para o castelo do Rei",
+				"next": "castle_scene"
+			}
+		]
+	}
+]

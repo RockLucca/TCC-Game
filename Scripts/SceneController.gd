@@ -26,10 +26,14 @@ func _ready() -> void:
 	# carregar a primeira cena do arquivo json
 	_dialog = _get_dialog()
 	print(name + ": init dialog. File '" + dialog_path + "loaded")
+	
+	var track_name := _get_scene_music_name()
+	AudioManager.play_music(track_name)
+	
 	_current_scene = "new_game_scene"
 	_show_scene(_current_scene)
 
-
+#
 func _get_scene_index(key: String) -> int:
 	var idx = -1
 	for i in range(len(_dialog)):
@@ -104,6 +108,9 @@ func _reset() -> void:
 	if _free_when_finished:
 		queue_free()
 
+func _get_scene_music_name() -> String:
+	var file_name = dialog_path.get_file()          # CasaSoldado.json
+	return file_name.get_basename()                 # CasaSoldado
 
 func _get_dialog() -> Array:
 	# check of condition is true or crash the game with the error message
@@ -131,12 +138,6 @@ func select_option(opt: int):
 	var options = _dialog[_current_idx]["options"]
 	if opt < 0 or opt >= len(options):
 		return
-	# mostra o resultado da escolha
-	#_outcome_text.text = options[opt]["outcome"]
-	
-	_lock_scene = true
-	await get_tree().create_timer(1.5).timeout
-	_lock_scene = false
 	
 	# carregar a outra cena, se for o caso
 	_outcome_text.text = ""
@@ -150,14 +151,6 @@ func _unhandled_input(event):
 		if event.pressed:# and event.keycode == KEY_ESCAPE:
 			select_option(event.keycode - 49)
 			print(event.keycode)
-
-
-func save_game():
-	pass
-
-
-func load_save():
-	pass
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

@@ -26,6 +26,7 @@ Config="*res://Scripts/config.gd"
 Global="*res://Scripts/global.gd"
 DaltonicFilter="*res://Scenes/DaltonicFilterGlobal.tscn"
 TTSManager="*res://Scripts/TTSManager.gd"
+AudioManager="*res://Scenes/audio_manager.tscn"
 
 [display]
 

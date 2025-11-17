@@ -11,11 +11,11 @@ func _ready():
 	visible = false
 
 	# Conectar botões
-	btn_continue.pressed.connect(_on_button_continue_pressed)
-	btn_instructions.pressed.connect(_on_button_instructions_pressed)
-	btn_settings.pressed.connect(_on_button_settings_pressed)
-	btn_mainmenu.pressed.connect(_on_button_main_menu_pressed)
-	btn_quit.pressed.connect(_on_button_quit_pressed)
+	#btn_continue.pressed.connect(_on_button_continue_pressed)
+	#btn_instructions.pressed.connect(_on_button_instructions_pressed)
+	#btn_settings.pressed.connect(_on_button_settings_pressed)
+	#btn_mainmenu.pressed.connect(_on_button_main_menu_pressed)
+	#btn_quit.pressed.connect(_on_button_quit_pressed)
 
 
 # =====================================================

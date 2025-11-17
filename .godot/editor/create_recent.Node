@@ -1,3 +1,7 @@
+HSlider
+Label
+AudioStreamPlayer
+Node
 Button
 VBoxContainer
 MarginContainer
@@ -6,9 +10,5 @@ CanvasLayer
 Sprite2D
 HBoxContainer
 ScrollContainer
-Label
 Control
 GridContainer
-TileMapLayer
-TileMap
-CenterContainer

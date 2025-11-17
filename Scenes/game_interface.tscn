@@ -15,7 +15,7 @@
 [node name="GameInterface" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_th5nb")
-dialog_path = "res://Scripts/chapter_1.json"
+dialog_path = "res://Scripts/CasaAventureiro.json"
 
 [node name="Sprites" type="Node" parent="."]
 

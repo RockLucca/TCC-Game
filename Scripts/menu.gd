@@ -4,8 +4,6 @@ extends Control
 
 #Scenes control
 @onready var curr_scene = $MainScreen
-@onready var credits_text = $CreditsLayer/ControlText
-@onready var credits_initial_pos = credits_text.global_position
 
 #Daltonic
 @onready var daltonic_button = $OptionsLayer/Options/DaltonicButton
@@ -14,24 +12,22 @@ extends Control
 #TTS (Text to Speech)
 @onready var tts_toggle := $OptionsLayer/Options/VoicesOnOff
 @onready var voice_option := $OptionsLayer/Options/VoicesOptions
+var voices_tts: Array[Dictionary] = DisplayServer.tts_get_voices()
 
 #Audio
-@onready var ui_audio = AudioServer.get_bus_index("UI")
-@onready var master_audio = AudioServer.get_bus_index("Master")
-@onready var background_audio = AudioServer.get_bus_index("Ambient")
-@onready var storyteller_audio = AudioServer.get_bus_index("Storyteller")
-
-var credits_rolling = false		#Credits
-var voices_tts: Array[Dictionary] = DisplayServer.tts_get_voices()		#TTS
+@onready var bgm_slider: HSlider = $OptionsLayer/Options/BGMVolume
+@onready var sfx_slider: HSlider = $OptionsLayer/Options/SFXVolume
+@onready var tts_slider: HSlider = $OptionsLayer/Options/TTSVolume
 
 #Functions
 func _ready():
 	$MainScreen/ButtonBox/Play.grab_focus()
 	setup_daltonic_options()
 	setup_tts_voices_options()
+	setup_audio_sliders()
+	AudioManager.play_bgm(preload("res://SoundEffects/BGM/MenuMSC.ogg"))
 
 func change_screen(scene):
-	credits_rolling = false
 	curr_scene.visible = false
 	curr_scene = scene
 	curr_scene.visible = true
@@ -51,7 +47,6 @@ func _on_options_pressed():
 
 func _on_credit_pressed():
 	$CreditsLayer/Back.grab_focus()
-	credits_text.global_position = credits_initial_pos
 	change_screen($CreditsLayer)
 
 func _on_exit_pressed():
@@ -62,20 +57,11 @@ func _on_back_pressed():
 	$MainScreen/ButtonBox/Play.grab_focus()
 
 func _toggle_fullscreen():
+	#Precisa ser feito
 	pass
-	Global.is_full_screen = not Global.is_full_screen
-	
-	if Global.is_full_screen:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-func _on_check_box_pressed():
-	pass
-	#_toggle_fullscreen()
 
 func change_font():
-	#var custom
+	#Precisa ser feito
 	pass
 
 #Accessibility Config Functions
@@ -131,3 +117,32 @@ func setup_daltonic_options():
 
 func _on_filter_changed(new_type: int):
 	filter_menu.select(new_type)
+
+
+func setup_audio_sliders():
+	# Define valores iniciais
+	bgm_slider.value = AudioManager.volume_bgm
+	sfx_slider.value = AudioManager.volume_sfx
+	tts_slider.value = AudioManager.volume_tts
+
+	# Conecta sinais
+	if not bgm_slider.is_connected("value_changed", Callable(self, "_on_bgm_volume_changed")):
+		bgm_slider.connect("value_changed", Callable(self, "_on_bgm_volume_changed"))
+
+	if not sfx_slider.is_connected("value_changed", Callable(self, "_on_sfx_volume_changed")):
+		sfx_slider.connect("value_changed", Callable(self, "_on_sfx_volume_changed"))
+
+	if not tts_slider.is_connected("value_changed", Callable(self, "_on_tts_volume_changed")):
+		tts_slider.connect("value_changed", Callable(self, "_on_tts_volume_changed"))
+
+
+func _on_bgm_volume_changed(value: float):
+	AudioManager.set_bgm_volume(value)
+
+
+func _on_sfx_volume_changed(value: float):
+	AudioManager.set_sfx_volume(value)
+
+
+func _on_tts_volume_changed(value: float):
+	AudioManager.set_tts_volume(value)

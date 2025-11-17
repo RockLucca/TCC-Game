@@ -2,8 +2,10 @@ res://Scenes/game_interface.tscn
 res://MaterialsThemes/DaltonicShader.gdshader
 res://Scripts/SceneController.gd
 res://MaterialsThemes/buttonsScoll.tres
-res://Scenes/menu.tscn
 res://Scenes/final_museum.tscn
 res://Scenes/save_select.tscn
-res://Scripts/pause_menu.gd
 res://Scenes/pause_menu.tscn
+res://Scenes/menu.tscn
+res://Scenes/audio_manager.tscn
+res://Scripts/audio_manager.gd
+res://Scripts/menu.gd
