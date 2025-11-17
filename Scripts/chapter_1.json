@@ -25,7 +25,7 @@
 			},
 			{
 				"text": "Seguir para o castelo do Rei",
-				"next": "choose_continue_adventure"
+				"next": "choose_castle_scene"
 			}
 		]
 	},
@@ -53,7 +53,7 @@
 			},
 			{
 				"text": "Seguir para o castelo do Rei",
-				"next": "choose_continue_adventure"
+				"next": "choose_castle_scene"
 			}
 		]
 	},
@@ -83,7 +83,7 @@
 			},
 			{
 				"text": "Continuar para o castelo do Rei",
-				"next": "choose_continue_adventure"
+				"next": "choose_castle_scene"
 			},
 			
 		]
@@ -112,7 +112,7 @@
 			},
 			{
 				"text": "Seguir para o castelo do Rei",
-				"next": "choose_continue_adventure"
+				"next": "choose_castle_scene"
 			}
 
 		]
@@ -142,7 +142,7 @@
 			},
 			{
 				"text": "Seguir para o castelo do Rei",
-				"next": "choose_continue_adventure"
+				"next": "choose_castle_scene"
 			}
 
 		]
@@ -172,7 +172,7 @@
 			},
 			{
 				"text": "Seguir para o castelo do Rei",
-				"next": "choose_continue_adventure"
+				"next": "choose_castle_scene"
 			}
 		]
 	},
@@ -201,7 +201,7 @@
 			},
 			{
 				"text": "Seguir para o castelo do Rei",
-				"next": "choose_continue_adventure"
+				"next": "choose_castle_scene"
 			}
 		]
 	},
@@ -224,9 +224,9 @@
 
 	
 	{
-		"scene": "choose_continue_adventure",
-		"key": "choose_continue_adventure",
-		"image": "choose_continue_adventure.png",
+		"scene": "choose_castle_scene",
+		"key": "choose_castle_scene",
+		"image": "choose_castle_scene.png",
 		"text": "
 			O aventureiro decide que é hora de seguir para o castelo do Rei e atender ao chamado da aventura.
 			Ele se veste rapidamente, pega sua mochila com equipamentos essenciais e sai pela porta da cabana, sentindo a brisa fresca da manhã em seu rosto.

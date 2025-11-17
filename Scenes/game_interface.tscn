@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cr2kker7c7odl"]
+[gd_scene load_steps=12 format=3 uid="uid://cr2kker7c7odl"]
 
 [ext_resource type="Script" path="res://Scripts/SceneController.gd" id="1_th5nb"]
 [ext_resource type="Texture2D" uid="uid://dg27d78arfuiw" path="res://Sprites/Table.png" id="2_t1qwy"]
@@ -10,20 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://c33df4enfxu5l" path="res://Sprites/Feather.png" id="8_41cma"]
 [ext_resource type="Texture2D" uid="uid://b4k0w3wud5lrl" path="res://Sprites/Compass.png" id="9_axy3e"]
 [ext_resource type="Texture2D" uid="uid://sebrujnt1s6d" path="res://Sprites/Candle.png" id="10_48cvj"]
+[ext_resource type="PackedScene" uid="uid://f03fxmp0chlw" path="res://Scenes/pause_menu.tscn" id="11_wlqp4"]
 
 [node name="GameInterface" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_th5nb")
 dialog_path = "res://Scripts/chapter_1.json"
 
 [node name="Sprites" type="Node" parent="."]
-
-[node name="Events" type="Node" parent="Sprites"]
-
-[node name="Map" type="Sprite2D" parent="Sprites/Events"]
-position = Vector2(203.497, 126.134)
-
-[node name="Frame" type="Sprite2D" parent="Sprites/Events"]
-position = Vector2(112.68, 430.539)
 
 [node name="Interface" type="Node" parent="Sprites"]
 
@@ -37,13 +31,17 @@ position = Vector2(356.181, 146.114)
 scale = Vector2(7, 5.5)
 texture = ExtResource("3_0oich")
 
+[node name="Frame" type="Sprite2D" parent="Sprites/Interface"]
+position = Vector2(184.431, 444.061)
+scale = Vector2(3, 3)
+
 [node name="Map" type="Sprite2D" parent="Sprites/Interface"]
-position = Vector2(176, 480)
+position = Vector2(186.383, 455.459)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("4_xjvn5")
 
 [node name="Inventory" type="Sprite2D" parent="Sprites/Interface"]
-position = Vector2(502.272, 476.636)
+position = Vector2(502.272, 453.983)
 scale = Vector2(5.91667, 5.91667)
 texture = ExtResource("5_2a1c5")
 
@@ -105,3 +103,5 @@ offset_bottom = 624.0
 layout_mode = 0
 offset_right = 464.0
 offset_bottom = 208.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("11_wlqp4")]

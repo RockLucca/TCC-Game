@@ -13,14 +13,14 @@ var _current_phrase: int = 0
 var _lock_scene: bool = false
 var _current_scene: String = ""
 var _free_when_finished: bool = false
-const SCENE_IMAGES: String = "res://Sprites/"
+const SCENE_IMAGES: String = "res://Sprites/Frames/"
 
-@onready var _map: Sprite2D = $Sprites/Events/Map
-@onready var _frame: Sprite2D = $Sprites/Events/Frame
+
+@onready var _map: Sprite2D = $Sprites/Interface/Frame
 @onready var _options_text = $TextLayer/Canvas/Options/OptionsText
 @onready var _scene_text = $TextLayer/Canvas/Description/DescriptionText
 @onready var _outcome_text = $TextLayer/Canvas/Description/DescriptionText
-
+@onready var pause_menu = $PauseMenu
 
 func _ready() -> void:
 	# carregar a primeira cena do arquivo json
@@ -54,7 +54,6 @@ func _fill_options(idx: int) -> void:
 
 #Load image for scene
 func _load_scene_image(scene_key: String) -> void:
-	pass
 	var image_path = "%s/%s.png" % [SCENE_IMAGES, scene_key]
 	
 	var image := Image.load_from_file(image_path)
@@ -159,6 +158,11 @@ func save_game():
 
 func load_save():
 	pass
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		print("ESC detectado")
+		pause_menu.toggle_pause()
 
 
 func change_chapter():
