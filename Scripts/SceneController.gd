@@ -134,16 +134,38 @@ func _get_dialog() -> Array:
 func select_option(opt: int):
 	if _lock_scene:
 		return
+	if _current_scene == "ending_scene":
+		_restart_game()
+		return
 	
 	var options = _dialog[_current_idx]["options"]
 	if opt < 0 or opt >= len(options):
 		return
-	
-	# carregar a outra cena, se for o caso
-	_outcome_text.text = ""
-	var next_scene = options[opt]["next"]
-	if next_scene != "none":
-		_show_scene(options[opt]["next"])
+	var option = options[opt]
+
+	#1) Verifica se é um final ---
+	if option.has("ending"):
+		var ending_id = option["ending"]
+		# Salva no museu
+		Config.unlock_final(ending_id)
+		# Exibe o texto final na caixa de dialogo
+		_scene_text.text = option.get("final_text", "Fim da história.")
+		# Remove opções e coloca só "Recomeçar"
+		_options_text.text = "1 - Recomeçar"
+		# Guarda que só existe essa opção
+		_current_scene = "ending_scene"
+		return
+
+	#2) Verifica troca de área ---
+	if option.has("change_area"):
+		change_chapter(option["change_area"])
+		return
+
+	#3) Continua o fluxo normal ---
+	_current_scene = option["next"]
+
+	if _current_scene != "none":
+		_show_scene(_current_scene)
 
 
 func _unhandled_input(event):
@@ -157,8 +179,34 @@ func _input(event):
 		print("ESC detectado")
 		pause_menu.toggle_pause()
 
+func change_chapter(area_name: String):
+	var new_path = "res://Scripts/%s.json" % area_name
 
-func change_chapter():
-	dialog_path = "res://Scripts/chapter_2.json"
+	if not FileAccess.file_exists(new_path):
+		push_error("Arquivo de área não encontrado: " + new_path)
+		return
+
+	dialog_path = new_path
 	_dialog = _get_dialog()
+
+	# Mantém a cena que o player deveria ir
 	_show_scene(_current_scene)
+
+	# Troca a música da área
+	AudioManager.play_music(area_name)
+
+func _restart_game():
+	get_tree().change_scene_to_file("res://Scenes/final_museum.tscn")
+
+func _trigger_ending(ending_name: String):
+	print("Final alcançado: ", ending_name)
+
+	# 1) Salvar que o final foi desbloqueado
+	EndingManager.unlock_ending(ending_name)
+
+	# 2) Mostrar a tela de final
+	var ending_scene := preload("res://Scenes/ending_screen.tscn").instantiate()
+	ending_scene.ending_name = ending_name
+	get_tree().root.add_child(ending_scene)
+	# 3) Reset do jogo depois da tela
+	# (O EndingScreen vai chamar isso quando o player clicar)

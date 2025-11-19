@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2fdaw7tsfai6"
-path="res://.godot/imported/Background_1.png-5997d78826a08a2f9a9aa91669097ab0.ctex"
+uid="uid://dkdwywa2nss4s"
+path="res://.godot/imported/choose_lock_around.png-9fb4590ef888fdd4c2730db5502db2db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Background_1.png"
-dest_files=["res://.godot/imported/Background_1.png-5997d78826a08a2f9a9aa91669097ab0.ctex"]
+source_file="res://Sprites/Frames/choose_lock_around.png"
+dest_files=["res://.godot/imported/choose_lock_around.png-9fb4590ef888fdd4c2730db5502db2db.ctex"]
 
 [params]
 

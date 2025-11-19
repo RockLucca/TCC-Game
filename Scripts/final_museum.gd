@@ -8,7 +8,7 @@ extends Control
 @onready var back_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/BackButton
 @onready var play_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/PlayButton
 
-const TOTAL_ENDINGS := 25  # total de finais planejados
+const TOTAL_ENDINGS := Config.TOTAL_ENDINGS
 
 func _ready() -> void:
 	_update_progress_label()

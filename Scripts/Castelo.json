@@ -1,13 +1,11 @@
 [
 	{
-		"scene": "first_scene",                                       
+		"scene": "choose_castle_scene",                                       
 		"title": "A primeira cena",
 		"text": "Eita bicho! O que aquele cara está fazendo no caminhão? Parece estar pendurado...",
-		"location": {"row": "3", "col": "7"},
 		"options": [
 			{   
 				"text": "Abrir porta",
-				"outcome": "A porta abriu e Diogo passou por ela",
 				"fail": "A porta não tem maçaneta e vou precisar da chave", 
 				"require": ["key1", "door_knob"],		                
 			},
@@ -32,7 +30,6 @@
 		"scene": "second_scene",
 		"title": "(Quase) A primeira cena",
 		"text": "AAAAAAAAAAAAAAAAAAAAAAAAAA...",
-		"location": {"row": "5", "col": "6"},
 		"options": [
 			{
 				"text": "Voltar",

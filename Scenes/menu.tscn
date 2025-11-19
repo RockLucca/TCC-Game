@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://by3dim8r3bj6e"]
+[gd_scene load_steps=8 format=3 uid="uid://by3dim8r3bj6e"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_b10ie"]
-[ext_resource type="Texture2D" uid="uid://b1q8c457y7hu8" path="res://Sprites/Background_2.png" id="2_bgmgq"]
 [ext_resource type="Theme" uid="uid://clxpl8auuga33" path="res://MaterialsThemes/buttonsScoll.tres" id="2_skikm"]
-[ext_resource type="Texture2D" uid="uid://b2fdaw7tsfai6" path="res://Sprites/Background_1.png" id="3_aumxe"]
 [ext_resource type="Texture2D" uid="uid://rfjo7yk3dley" path="res://icon.svg" id="4_0l7xb"]
 [ext_resource type="Texture2D" uid="uid://bg505k584aks3" path="res://Sprites/UI/main_menu.png" id="4_crpgd"]
 [ext_resource type="Texture2D" uid="uid://cj4qflbj38mqj" path="res://Sprites/logo_gamepad_80x80.png" id="4_wtqg2"]
 [ext_resource type="Texture2D" uid="uid://bssndlvdps054" path="res://Sprites/teclado.png" id="5_ders5"]
+[ext_resource type="Texture2D" uid="uid://bbrn6j8ksjbb7" path="res://Sprites/Text.png" id="9_ktugn"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,34 +15,6 @@ script = ExtResource("1_b10ie")
 
 [node name="Background" type="Control" parent="."]
 anchors_preset = 0
-
-[node name="Panel" type="Panel" parent="Background"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Temp" type="ColorRect" parent="Background"]
-visible = false
-layout_mode = 0
-offset_right = 1337.0
-offset_bottom = 739.0
-color = Color(0.494118, 0.494118, 0.494118, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Background"]
-visible = false
-position = Vector2(647.353, 364)
-scale = Vector2(2.73529, 2.73529)
-texture = ExtResource("2_bgmgq")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Background"]
-visible = false
-position = Vector2(651.059, 368)
-scale = Vector2(2.70588, 2.70588)
-texture = ExtResource("3_aumxe")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Background"]
 position = Vector2(636.444, 362)
@@ -58,10 +29,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 568.0
-offset_top = 368.0
-offset_right = 745.0
-offset_bottom = 629.0
+offset_left = 520.0
+offset_top = 320.0
+offset_right = 760.0
+offset_bottom = 660.0
 grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
@@ -117,13 +88,13 @@ text = "Sair
 "
 
 [node name="UTFPRLogo" type="Sprite2D" parent="MainScreen"]
-position = Vector2(1192, 384)
+position = Vector2(1208, 432)
 scale = Vector2(2.2, 2.2)
 texture = ExtResource("4_wtqg2")
 hframes = 5
 
 [node name="GodotLogo" type="Sprite2D" parent="MainScreen"]
-position = Vector2(76, 644)
+position = Vector2(1200, 632)
 scale = Vector2(1.1875, 1.1875)
 texture = ExtResource("4_0l7xb")
 
@@ -151,11 +122,20 @@ offset_top = 300.0
 offset_right = 1280.0
 offset_bottom = 720.0
 
+[node name="Sprite2D" type="Sprite2D" parent="OptionsLayer"]
+position = Vector2(640, 174)
+scale = Vector2(4.22727, 13.375)
+texture = ExtResource("9_ktugn")
+
 [node name="Options" type="VBoxContainer" parent="OptionsLayer"]
 layout_mode = 2
+theme_override_constants/separation = 3
 
 [node name="Label" type="Label" parent="OptionsLayer/Options"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
 text = "Configurações Text to Speech"
 horizontal_alignment = 1
 
@@ -168,6 +148,9 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="OptionsLayer/Options"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
 text = "Configuração Fontes Textuais"
 horizontal_alignment = 1
 
@@ -176,6 +159,9 @@ layout_mode = 2
 
 [node name="Label3" type="Label" parent="OptionsLayer/Options"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
 text = "Configurações de Daltonismo"
 
 [node name="DaltonicButton" type="OptionButton" parent="OptionsLayer/Options"]
@@ -188,6 +174,9 @@ step = 0.05
 
 [node name="Label4" type="Label" parent="OptionsLayer/Options"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
 text = "Configurações de Volume"
 
 [node name="BGMVolume" type="HSlider" parent="OptionsLayer/Options"]

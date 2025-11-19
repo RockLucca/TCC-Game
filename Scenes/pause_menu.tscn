@@ -19,7 +19,10 @@ mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
+alignment = 1
 
 [node name="ButtonContinue" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -40,6 +43,20 @@ text = "Menu Principal"
 [node name="ButtonQuit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sair do Jogo"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.5
+offset_top = 109.457
+offset_right = 118.5
+offset_bottom = 248.457
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Jogo
+Pausado"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonInstructions" to="." method="_on_button_instructions_pressed"]
