@@ -19,6 +19,8 @@ const DEFAULT_SAVE := {
 	}
 }
 
+const SAVE_SLOTS = ["slot_1", "slot_2", "slot_3"]
+
 signal filter_changed(new_filter_type)
 
 # --- AO INICIAR ---
@@ -85,20 +87,25 @@ func unlock_final(final_id: String) -> void:
 func has_final(final_id: String) -> bool:
 	return final_id in save_data["finais_obtidos"]
 
-func list_saves() -> Array:
-	var dir = DirAccess.open(SAVE_DIR)
-	if dir == null:
-		return []
-	var saves := []
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	while file_name != "":
-		if file_name.ends_with(".json"):
-			saves.append(file_name.replace(".json", ""))
-		file_name = dir.get_next()
-	dir.list_dir_end()
-	return saves
+func list_saves():
+	var result := {}
 
+	for slot in SAVE_SLOTS:
+		var path := "user://saves/%s.json" % slot
+
+		# Se o arquivo não existe, cria um save vazio automaticamente
+		if not FileAccess.file_exists(path):
+			var new_save = DEFAULT_SAVE.duplicate(true)
+			var file = FileAccess.open(path, FileAccess.WRITE)
+			file.store_string(JSON.stringify(new_save, "\t"))
+			file.close()
+
+			result[slot] = false  # existe agora, mas está vazio
+		else:
+			# Arquivo existe → é um save válido
+			result[slot] = true
+	return result
+	
 # =======================================================
 # ============= PROGRESSO E ESTATÍSTICAS ================
 # =======================================================
@@ -111,7 +118,7 @@ var current_progress := {
 }
 
 # Define o número total de finais possíveis (ajuste conforme o jogo cresce)
-const TOTAL_ENDINGS := 40
+const TOTAL_ENDINGS := 50
 
 # Atualiza a cena atual (para salvar em checkpoints)
 func update_progress(scene_name: String, choices: Array = []) -> void:
@@ -197,6 +204,27 @@ func get_config(key: String):
 	if save_data.has("configuracoes") and key in save_data["configuracoes"]:
 		return save_data["configuracoes"][key]
 	return null
+
+func delete_save(slot_name: String) -> void:
+	var path := SAVE_DIR + "%s.json" % slot_name
+
+	# Se o arquivo existir, apagamos
+	if FileAccess.file_exists(path):
+		DirAccess.remove_absolute(path)
+		print("Save deletado:", path)
+	else:
+		print("Nenhum arquivo para deletar:", path)
+
+	# Recria um save vazio automaticamente
+	var file = FileAccess.open(path, FileAccess.WRITE)
+	file.store_string(JSON.stringify(DEFAULT_SAVE, "\t"))
+	file.close()
+
+	# Se deletou o save que estava carregado, limpa os dados atuais
+	if current_save_path == path:
+		current_save_path = ""
+		save_data = DEFAULT_SAVE.duplicate(true)
+	print("Novo save vazio criado no slot:", slot_name)
 
 
 # =======================================================

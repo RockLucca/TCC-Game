@@ -10,3 +10,5 @@ res://Scenes/save_select.tscn
 res://Scripts/CasaAventureiro.json
 res://Scripts/ending_database.gd
 res://Scripts/final_museum.gd
+res://Scripts/save_select.gd
+res://Scripts/config.gd
