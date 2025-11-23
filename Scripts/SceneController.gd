@@ -3,23 +3,23 @@
 extends Node2D
 class_name SceneController
 
+
 @export_file("*.json") var dialog_path: String = ""
 @export var text_delay: float = 0.03
 
 var _dialog: Variant
-var _chapter: int = 1
 var _current_idx: int = -1
 var _current_phrase: int = 0
 var _lock_scene: bool = false
 var _current_scene: String = ""
 var _free_when_finished: bool = false
 const SCENE_IMAGES: String = "res://Sprites/Frames/"
+const EndingDatabase = preload("res://Scripts/ending_database.gd")
 
 
 @onready var _map: Sprite2D = $Sprites/Interface/Frame
 @onready var _options_text = $TextLayer/Canvas/Options/OptionsText
 @onready var _scene_text = $TextLayer/Canvas/Description/DescriptionText
-@onready var _outcome_text = $TextLayer/Canvas/Description/DescriptionText
 @onready var pause_menu = $PauseMenu
 
 func _ready() -> void:
@@ -60,9 +60,11 @@ func _fill_options(idx: int) -> void:
 func _load_scene_image(scene_key: String) -> void:
 	var image_path = "%s/%s.png" % [SCENE_IMAGES, scene_key]
 	
-	var image := Image.load_from_file(image_path)
-	_map.texture = ImageTexture.create_from_image(image)
-	#_sprite.centered = false
+	var tex := load(image_path)
+	if tex:
+		_map.texture = tex
+	else:
+		print("Erro ao carregar imagem da cena:", image_path)
 
 
 func _show_scene(key: String) -> void:
@@ -146,14 +148,29 @@ func select_option(opt: int):
 	#1) Verifica se é um final ---
 	if option.has("ending"):
 		var ending_id = option["ending"]
-		# Salva no museu
+
 		Config.unlock_final(ending_id)
-		# Exibe o texto final na caixa de dialogo
-		_scene_text.text = option.get("final_text", "Fim da história.")
-		# Remove opções e coloca só "Recomeçar"
+		var ending_data = EndingDatabase.ENDINGS.get(ending_id, {})
+
+		# Texto do final
+		if ending_data.has("text"):
+			_scene_text.text = ending_data["text"]
+		else:
+			_scene_text.text = "Fim da história."
+
+		# Imagem do final   (CORRIGIDO)
+		if ending_data.has("image"):
+			var tex := load(ending_data["image"])  # carrega como recurso importado
+			if tex is Texture2D:
+				_map.texture = tex
+
+		# Remover opções e colocar só 'recomeçar'
 		_options_text.text = "1 - Recomeçar"
-		# Guarda que só existe essa opção
 		_current_scene = "ending_scene"
+		print("ENDING DATA:", ending_data)
+		print("HAS TEXT:", ending_data.has("text"))
+		print("HAS IMAGE:", ending_data.has("image"))
+
 		return
 
 	#2) Verifica troca de área ---
@@ -197,16 +214,3 @@ func change_chapter(area_name: String):
 
 func _restart_game():
 	get_tree().change_scene_to_file("res://Scenes/final_museum.tscn")
-
-func _trigger_ending(ending_name: String):
-	print("Final alcançado: ", ending_name)
-
-	# 1) Salvar que o final foi desbloqueado
-	EndingManager.unlock_ending(ending_name)
-
-	# 2) Mostrar a tela de final
-	var ending_scene := preload("res://Scenes/ending_screen.tscn").instantiate()
-	ending_scene.ending_name = ending_name
-	get_tree().root.add_child(ending_scene)
-	# 3) Reset do jogo depois da tela
-	# (O EndingScreen vai chamar isso quando o player clicar)

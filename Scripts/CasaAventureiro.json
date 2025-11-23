@@ -15,7 +15,7 @@
 			{
 				"text": "Voltar para a cama e tentar dormir mais um pouco",
 				"next": "none",
-				"ending": "FinalDormir",
+				"ending": "dormir",
 				"is_ending": true
 			},
 			{
@@ -66,7 +66,9 @@
 		"options": [
 			{
 				"text": "Tomar ainda mais café",
-				"next": "choose_too_much_coffee"
+				"next": "choose_too_much_coffee",
+				"ending": "cafeina",
+				"is_ending": true
 			},
 			{
 				"text": "Olhar pela janela",
@@ -92,8 +94,10 @@
 			O que o aventureiro deveria fazer?",
 		"options": [
 			{
-				"text": "Voltar a dormir mais um pouco",			
-				"next": "choose_bed"
+				"text": "Voltar para a cama e tentar dormir mais um pouco",
+				"next": "none",
+				"ending": "dormir",
+				"is_ending": true
 			},
 			{
 				"text": "Tomar uma xicara de café",

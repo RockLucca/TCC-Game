@@ -27,7 +27,6 @@ Global="*res://Scripts/global.gd"
 DaltonicFilter="*res://Scenes/DaltonicFilterGlobal.tscn"
 TTSManager="*res://Scripts/TTSManager.gd"
 AudioManager="*res://Scenes/audio_manager.tscn"
-EndingManager="*res://Scripts/ending_manager.gd"
 EndingDatabase="*res://Scripts/ending_database.gd"
 
 [display]
