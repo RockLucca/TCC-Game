@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rfjo7yk3dley" path="res://icon.svg" id="4_0l7xb"]
 [ext_resource type="Texture2D" uid="uid://bg505k584aks3" path="res://Sprites/UI/main_menu.png" id="4_crpgd"]
 [ext_resource type="Texture2D" uid="uid://cj4qflbj38mqj" path="res://Sprites/logo_gamepad_80x80.png" id="4_wtqg2"]
-[ext_resource type="Texture2D" uid="uid://bssndlvdps054" path="res://Sprites/teclado.png" id="5_ders5"]
+[ext_resource type="Texture2D" uid="uid://cv2ph8x3a17pw" path="res://Sprites/UI/teclado.png" id="6_k67m8"]
 [ext_resource type="Texture2D" uid="uid://bbrn6j8ksjbb7" path="res://Sprites/Text.png" id="9_ktugn"]
 
 [node name="Menu" type="Control"]
@@ -23,6 +23,13 @@ texture = ExtResource("4_crpgd")
 
 [node name="MainScreen" type="Control" parent="."]
 anchors_preset = 0
+
+[node name="Label" type="Label" parent="MainScreen"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 896.0
+offset_bottom = 248.0
 
 [node name="ButtonBox" type="VBoxContainer" parent="MainScreen"]
 layout_mode = 1
@@ -100,19 +107,51 @@ texture = ExtResource("4_0l7xb")
 
 [node name="InstructionsLayer" type="Control" parent="."]
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="InstructionsLayer"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1288.0
+offset_bottom = 728.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.521569)
+
+[node name="Label" type="Label" parent="InstructionsLayer"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 48.0
+offset_right = 937.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 100
+text = "Instruções"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Buttons" type="Sprite2D" parent="InstructionsLayer"]
-position = Vector2(312, 320)
-texture = ExtResource("5_ders5")
+position = Vector2(640, 328)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("6_k67m8")
 
 [node name="Back" type="Button" parent="InstructionsLayer"]
 layout_mode = 0
-offset_top = 688.0
-offset_right = 55.0
+offset_top = 648.0
+offset_right = 126.0
 offset_bottom = 719.0
+theme_override_font_sizes/font_size = 30
 text = "Voltar"
 
 [node name="OptionsLayer" type="CenterContainer" parent="."]

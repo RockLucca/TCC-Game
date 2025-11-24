@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmfk3s23ta47w"
-path="res://.godot/imported/choose_bed.png-0aa90606ec1cf26901525974b14fb4a4.ctex"
+uid="uid://0tsm1tce0xm0"
+path="res://.godot/imported/choose_look_out_window_after_coffee.png-2540830c83cab58e91830b484a8d4b9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Frames/choose_bed.png"
-dest_files=["res://.godot/imported/choose_bed.png-0aa90606ec1cf26901525974b14fb4a4.ctex"]
+source_file="res://Sprites/Frames/choose_look_out_window_after_coffee.png"
+dest_files=["res://.godot/imported/choose_look_out_window_after_coffee.png-2540830c83cab58e91830b484a8d4b9c.ctex"]
 
 [params]
 

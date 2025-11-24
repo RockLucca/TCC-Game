@@ -12,3 +12,5 @@ res://Scripts/ending_database.gd
 res://Scripts/final_museum.gd
 res://Scripts/save_select.gd
 res://Scripts/config.gd
+res://Scripts/menu.gd
+res://Scripts/pause_menu.gd

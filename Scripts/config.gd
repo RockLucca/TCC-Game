@@ -7,6 +7,8 @@ var save_data: Dictionary = {}
 # --- CONSTANTES ---
 const SAVE_DIR := "user://saves/"
 const GLOBAL_SETTINGS := "user://settings.cfg"
+const TOTAL_ENDINGS := 50 # Define o número total de finais possíveis
+const SAVE_SLOTS = ["slot_1", "slot_2", "slot_3"]
 
 # --- ESTRUTURA PADRÃO DE UM SAVE ---
 const DEFAULT_SAVE := {
@@ -19,9 +21,8 @@ const DEFAULT_SAVE := {
 	}
 }
 
-const SAVE_SLOTS = ["slot_1", "slot_2", "slot_3"]
-
 signal filter_changed(new_filter_type)
+
 
 # --- AO INICIAR ---
 func _ready() -> void:
@@ -35,10 +36,7 @@ func _ready() -> void:
 	apply_current_filter()
 
 
-# =======================================================
 # ============= SISTEMA DE SALVAMENTO ====================
-# =======================================================
-
 func create_new_save(slot_name: String) -> void:
 	current_save_path = SAVE_DIR + slot_name + ".json"
 	save_data = DEFAULT_SAVE.duplicate(true)
@@ -106,19 +104,13 @@ func list_saves():
 			result[slot] = true
 	return result
 	
-# =======================================================
 # ============= PROGRESSO E ESTATÍSTICAS ================
-# =======================================================
-
 # Define dados temporários de progresso (sem sobrescrever o save até salvar)
 var current_progress := {
 	"scene": "",          # Cena ou chave atual
 	"choices": [],        # Lista de escolhas feitas
 	"playtime": 0.0       # Tempo jogado acumulado
 }
-
-# Define o número total de finais possíveis (ajuste conforme o jogo cresce)
-const TOTAL_ENDINGS := 50
 
 # Atualiza a cena atual (para salvar em checkpoints)
 func update_progress(scene_name: String, choices: Array = []) -> void:
@@ -149,10 +141,7 @@ func reset_progress() -> void:
 	print("Progresso reiniciado.")
 
 
-# =======================================================
 # ============= SISTEMA DE CONFIGURAÇÕES =================
-# =======================================================
-
 # --- Daltonismo ---
 func set_filter(type: int) -> void:
 	if get_config("filter_type") != type:
@@ -227,10 +216,7 @@ func delete_save(slot_name: String) -> void:
 	print("Novo save vazio criado no slot:", slot_name)
 
 
-# =======================================================
 # ============ CONFIGURAÇÕES GLOBAIS =====================
-# =======================================================
-
 func save_global_settings() -> void:
 	var cfg = ConfigFile.new()
 	cfg.set_value("daltonic", "filter_type", get_config("filter_type"))

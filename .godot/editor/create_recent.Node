@@ -1,15 +1,14 @@
+ColorRect
+Label
 TextureButton
 Button
 HBoxContainer
 VBoxContainer
-Label
 Sprite2D
 TextureRect
-ColorRect
 Control
 HSlider
 AudioStreamPlayer
 Node
 MarginContainer
 PanelContainer
-CanvasLayer

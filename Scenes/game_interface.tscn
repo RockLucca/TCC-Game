@@ -26,6 +26,11 @@ position = Vector2(640, 360)
 scale = Vector2(10, 10)
 texture = ExtResource("2_t1qwy")
 
+[node name="ColorRect" type="ColorRect" parent="Sprites/Interface"]
+offset_right = 1294.0
+offset_bottom = 738.0
+color = Color(0, 0, 0, 0.529412)
+
 [node name="Scroll" type="Sprite2D" parent="Sprites/Interface"]
 position = Vector2(329.222, 138.411)
 scale = Vector2(6.3873, 5.01859)

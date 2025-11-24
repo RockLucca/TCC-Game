@@ -76,8 +76,8 @@ func setup_tts_voices_options():
 	tts_toggle.button_pressed = TTSManager.enabled
 
 	# Conecta sinais
-	tts_toggle.connect("toggled", Callable(self, "_on_voices_on_off_toggled"))
-	voice_option.connect("item_selected", Callable(self, "_on_voices_options_item_selected"))
+	#tts_toggle.connect("toggled", Callable(self, "_on_voices_on_off_toggled"))
+	#voice_option.connect("item_selected", Callable(self, "_on_voices_options_item_selected"))
 
 func _on_voices_on_off_toggled(toggled_on):
 	TTSManager.set_enabled(toggled_on)

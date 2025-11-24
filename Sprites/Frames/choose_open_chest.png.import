@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8b6d72muy7v3"
-path="res://.godot/imported/choose_too_much_coffee.png-14a7e8daeb114ff58527a842dc6e880a.ctex"
+uid="uid://p0mpo0eiqxo0"
+path="res://.godot/imported/choose_open_chest.png-0c3a4a63f074ffb64f7e0bc0c4353750.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Frames/choose_too_much_coffee.png"
-dest_files=["res://.godot/imported/choose_too_much_coffee.png-14a7e8daeb114ff58527a842dc6e880a.ctex"]
+source_file="res://Sprites/Frames/choose_open_chest.png"
+dest_files=["res://.godot/imported/choose_open_chest.png-0c3a4a63f074ffb64f7e0bc0c4353750.ctex"]
 
 [params]
 

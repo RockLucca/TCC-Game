@@ -10,18 +10,8 @@ extends CanvasLayer
 func _ready():
 	visible = false
 
-	# Conectar botões
-	#btn_continue.pressed.connect(_on_button_continue_pressed)
-	#btn_instructions.pressed.connect(_on_button_instructions_pressed)
-	#btn_settings.pressed.connect(_on_button_settings_pressed)
-	#btn_mainmenu.pressed.connect(_on_button_main_menu_pressed)
-	#btn_quit.pressed.connect(_on_button_quit_pressed)
 
-
-# =====================================================
 # FUNÇÕES PRINCIPAIS
-# =====================================================
-
 func toggle_pause():
 	print("toggle_pause chamada. visible =", self.visible)
 	if visible:
@@ -40,10 +30,7 @@ func resume_game():
 	get_tree().paused = false
 
 
-# =====================================================
 # BOTÕES
-# =====================================================
-
 func _on_button_continue_pressed():
 	resume_game()
 
@@ -51,7 +38,6 @@ func _on_button_continue_pressed():
 func _on_button_instructions_pressed():
 	# Aqui você abre sua tela de instruções
 	print("Abrir tela de instruções")
-	# get_tree().change_scene_to_file("res://Scenes/instrucoes.tscn")
 
 
 func _on_button_settings_pressed():
