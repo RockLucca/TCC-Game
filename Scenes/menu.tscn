@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://by3dim8r3bj6e"]
+[gd_scene load_steps=9 format=3 uid="uid://by3dim8r3bj6e"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_b10ie"]
 [ext_resource type="Theme" uid="uid://clxpl8auuga33" path="res://MaterialsThemes/buttonsScoll.tres" id="2_skikm"]
+[ext_resource type="Texture2D" uid="uid://chfxwyai4yvxf" path="res://Sprites/Scroll.png" id="3_hsown"]
 [ext_resource type="Texture2D" uid="uid://rfjo7yk3dley" path="res://icon.svg" id="4_0l7xb"]
 [ext_resource type="Texture2D" uid="uid://bg505k584aks3" path="res://Sprites/UI/main_menu.png" id="4_crpgd"]
 [ext_resource type="Texture2D" uid="uid://cj4qflbj38mqj" path="res://Sprites/logo_gamepad_80x80.png" id="4_wtqg2"]
@@ -21,15 +22,13 @@ position = Vector2(636.444, 362)
 scale = Vector2(1.98889, 1.98889)
 texture = ExtResource("4_crpgd")
 
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(640, 144)
+scale = Vector2(7.5625, 7.5625)
+texture = ExtResource("3_hsown")
+
 [node name="MainScreen" type="Control" parent="."]
 anchors_preset = 0
-
-[node name="Label" type="Label" parent="MainScreen"]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 64.0
-offset_right = 896.0
-offset_bottom = 248.0
 
 [node name="ButtonBox" type="VBoxContainer" parent="MainScreen"]
 layout_mode = 1
@@ -250,6 +249,19 @@ offset_top = 684.0
 offset_right = 73.0
 offset_bottom = 715.0
 text = "Voltar"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 40.0
+offset_right = 912.0
+offset_bottom = 248.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "As Crônicas dos 
+Pergaminhos Vivos"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MainScreen/ButtonBox/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainScreen/ButtonBox/Instructions" to="." method="_on_instructions_pressed"]

@@ -5,8 +5,6 @@ extends Control
 
 @onready var endings_grid: GridContainer = $MarginContainer/VBoxContainer/ScrollContainer/EndingsGrid
 @onready var progress_label: Label = $MarginContainer/VBoxContainer/ProgressLabel
-@onready var back_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/BackButton
-@onready var play_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/PlayButton
 
 const TOTAL_ENDINGS := Config.TOTAL_ENDINGS
 const EndingDatabase = preload("res://Scripts/ending_database.gd")
@@ -14,8 +12,6 @@ const EndingDatabase = preload("res://Scripts/ending_database.gd")
 func _ready() -> void:
 	_update_progress_label()
 	_create_ending_cards()
-	back_button.connect("pressed", Callable(self, "_on_BackButton_pressed"))
-	play_button.connect("pressed", Callable(self, "_on_PlayButton_pressed"))
 	#print("ENDINGS LOADED:", EndingDatabase.ENDINGS)
 	#print("ENDING KEYS:", EndingDatabase.ENDINGS.keys())
 
@@ -65,10 +61,9 @@ func _on_ending_selected(ending_id: String) -> void:
 	print("Abrindo informações do final:", ending_id)
 	# Aqui podemos abrir uma janela de detalhe no futuro
 
-# Volta para a tela anterior (seleção de save)
-func _on_BackButton_pressed() -> void:
+func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/save_select.tscn")
 
-# Inicia o jogo normalmente
-func _on_PlayButton_pressed() -> void:
+
+func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://Scenes/game_interface.tscn")
