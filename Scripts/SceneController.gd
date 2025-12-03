@@ -8,6 +8,7 @@ class_name SceneController
 @export var text_delay: float = 0.03
 
 var _dialog: Variant
+var inventory: Array = []
 var _current_idx: int = -1
 var _current_phrase: int = 0
 var _lock_scene: bool = false
@@ -21,6 +22,18 @@ const EndingDatabase = preload("res://Scripts/ending_database.gd")
 @onready var _options_text = $TextLayer/Canvas/Options/OptionsText
 @onready var _scene_text = $TextLayer/Canvas/Description/DescriptionText
 @onready var pause_menu = $PauseMenu
+@onready var inventory_box = $Sprites/InventoryItens
+
+var item_sprites := {
+	"Espada": "Espada",
+	"Escudo": "Escudo",
+	"Bomba": "Bomba",
+	"Gancho": "Gancho",
+	"Pa": "Pa",
+	"VaraPesca": "VaraPesca",
+	"Mapa": "Mapa"
+}
+
 
 func _ready() -> void:
 	# carregar a primeira cena do arquivo json
@@ -64,8 +77,9 @@ func _load_scene_image(scene_key: String) -> void:
 	if tex:
 		_map.texture = tex
 	else:
-		print("Erro ao carregar imagem da cena:", image_path)
-
+		image_path = "res://Sprites/Endings/final_locked.png"
+		var tex2 := load(image_path)
+		_map.texture = tex2
 
 func _show_scene(key: String) -> void:
 	_current_idx = _get_scene_index(key)
@@ -145,33 +159,73 @@ func select_option(opt: int):
 		return
 	var option = options[opt]
 
-	#1) Verifica se é um final ---
+	# ---------------------------------------------------------
+	# 1) SISTEMA DE REQUIRE / FAIL
+	# ---------------------------------------------------------
+	if option.has("require"):
+		var missing := false
+		for item in option["require"]:
+			if item not in inventory:
+				missing = true
+				break
+		
+		if missing:
+			# Exibe mensagem de falha se existir
+			if option.has("fail"):
+				_scene_text.text = option["fail"]
+			else:
+				_scene_text.text = "Você não possui os itens necessários."
+			
+			_fill_options(_current_idx)  # mantém as opções atuais
+			return
+	# ---------------------------------------------------------
+
+	# ---------------------------------------------------------
+	# 2) SISTEMA DE GRANT (adicionar itens ao inventário)
+	# ---------------------------------------------------------
+	if option.has("grant"):
+		for item in option["grant"]:
+			if item not in inventory:
+				inventory.append(item)
+				_show_item_sprite(item)
+	# ---------------------------------------------------------
+
+	# ---------------------------------------------------------
+	# 3) Finais, trocas, etc
+	# ---------------------------------------------------------
+
+	#Final
 	if option.has("ending"):
 		var ending_id = option["ending"]
 
 		Config.unlock_final(ending_id)
 		var ending_data = EndingDatabase.ENDINGS.get(ending_id, {})
 
-		# Texto do final
 		if ending_data.has("text"):
 			_scene_text.text = ending_data["text"]
 		else:
 			_scene_text.text = "Fim da história."
 
-		# Imagem do final   (CORRIGIDO)
 		if ending_data.has("image"):
-			var tex := load(ending_data["image"])  # carrega como recurso importado
+			var tex := load(ending_data["image"])
 			if tex is Texture2D:
 				_map.texture = tex
 
-		# Remover opções e colocar só 'recomeçar'
 		_options_text.text = "1 - Recomeçar"
 		_current_scene = "ending_scene"
-		print("ENDING DATA:", ending_data)
-		print("HAS TEXT:", ending_data.has("text"))
-		print("HAS IMAGE:", ending_data.has("image"))
-
 		return
+
+	#Troca de área
+	if option.has("change_area"):
+		change_chapter(option["change_area"])
+		return
+
+	# Continua fluxo normal
+	_current_scene = option["next"]
+
+	if _current_scene != "none":
+		_show_scene(_current_scene)
+
 
 	#2) Verifica troca de área ---
 	if option.has("change_area"):
@@ -183,6 +237,19 @@ func select_option(opt: int):
 
 	if _current_scene != "none":
 		_show_scene(_current_scene)
+
+func _show_item_sprite(item_name: String):
+	if item_sprites.has(item_name):
+		var node_name = item_sprites[item_name]
+		var sprite_node = inventory_box.get_node_or_null(node_name)
+		
+		if sprite_node:
+			sprite_node.visible = true
+			print("Item mostrado no inventário:", item_name)
+		else:
+			print("Sprite não encontrado para:", node_name)
+	else:
+		print("Item sem sprite mapeado:", item_name)
 
 
 func _unhandled_input(event):

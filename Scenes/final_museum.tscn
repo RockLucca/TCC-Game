@@ -25,30 +25,10 @@ position = Vector2(125.944, 667.75)
 scale = Vector2(2.875, 3.23437)
 texture = ExtResource("3_fj3q6")
 
-[node name="BackButton" type="Button" parent="."]
-layout_mode = 2
-offset_left = 16.0
-offset_top = 632.0
-offset_right = 240.0
-offset_bottom = 720.0
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
-text = "Voltar"
-
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(1152, 664)
 scale = Vector2(2.81138, 3.21675)
 texture = ExtResource("3_fj3q6")
-
-[node name="PlayButton" type="Button" parent="."]
-layout_mode = 2
-offset_left = 1040.0
-offset_top = 632.0
-offset_right = 1264.0
-offset_bottom = 722.0
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 40
-text = "Jogar"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -79,6 +59,26 @@ layout_mode = 2
 [node name="EndingsGrid" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 columns = 4
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 632.0
+offset_right = 240.0
+offset_bottom = 720.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Voltar"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1040.0
+offset_top = 632.0
+offset_right = 1264.0
+offset_bottom = 722.0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+text = "Jogar"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

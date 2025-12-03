@@ -67,7 +67,7 @@
 			{
 				"text": "Tomar ainda mais café",
 				"next": "choose_too_much_coffee",
-				"ending": "cafeína",
+				"ending": "cafeina",
 				"is_ending": true
 			},
 			{
@@ -222,7 +222,31 @@
 			{
 				"text": "Trancar a casa e  ir para o castelo do Rei",
 				"change_area": "Castelo",
-				"next": "Castelo"
+				"next": "choose_castle_scene"
+			}
+		]
+	},
+	{
+		"scene": "choose_return_home",
+		"text": "
+			A aventura pode esperar mais um pouco.
+			O Aventureiro retorna a sua casa, agora o café está frio, sobrando poucas coisas para fazer",
+		"options": [
+			{
+				"text": "Voltar para a cama e tentar dormir mais um pouco",
+				"next": "none",
+				"ending": "dormir",
+				"is_ending": true
+			},
+			{
+				"text": "Trancar a casa e  ir para o castelo do Rei",
+				"change_area": "Castelo",
+				"next": "choose_high_wall"
+			},
+			{
+				"text": "Viajar para a montanha",
+				"change_area": "Montanha",
+				"next": "choose_mountain_gate"
 			}
 		]
 	}

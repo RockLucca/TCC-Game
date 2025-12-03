@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cr2kker7c7odl"]
+[gd_scene load_steps=19 format=3 uid="uid://cr2kker7c7odl"]
 
 [ext_resource type="Script" path="res://Scripts/SceneController.gd" id="1_th5nb"]
 [ext_resource type="Texture2D" uid="uid://dg27d78arfuiw" path="res://Sprites/Table.png" id="2_t1qwy"]
@@ -10,7 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://c33df4enfxu5l" path="res://Sprites/Feather.png" id="8_41cma"]
 [ext_resource type="Texture2D" uid="uid://b4k0w3wud5lrl" path="res://Sprites/Compass.png" id="9_axy3e"]
 [ext_resource type="Texture2D" uid="uid://sebrujnt1s6d" path="res://Sprites/Candle.png" id="10_48cvj"]
+[ext_resource type="Texture2D" uid="uid://iosfd5f4d64l" path="res://Sprites/Itens/espada.png" id="11_scy73"]
 [ext_resource type="PackedScene" uid="uid://f03fxmp0chlw" path="res://Scenes/pause_menu.tscn" id="11_wlqp4"]
+[ext_resource type="Texture2D" uid="uid://em1ept8odmdi" path="res://Sprites/Itens/escudo.png" id="12_8td62"]
+[ext_resource type="Texture2D" uid="uid://dp1crdqhahgtg" path="res://Sprites/Itens/bomba.png" id="13_5v8b1"]
+[ext_resource type="Texture2D" uid="uid://dwd78jevhc836" path="res://Sprites/Itens/gancho.png" id="14_wuyx3"]
+[ext_resource type="Texture2D" uid="uid://byytd635hmsn1" path="res://Sprites/Itens/pa.png" id="15_3rfs2"]
+[ext_resource type="Texture2D" uid="uid://b00cd3hu4npn8" path="res://Sprites/Itens/pesca.png" id="16_nhbfo"]
+[ext_resource type="Texture2D" uid="uid://dhq47tesiy1tu" path="res://Sprites/Itens/mapa.png" id="17_wlj7q"]
 
 [node name="GameInterface" type="Node2D"]
 process_mode = 3
@@ -82,6 +89,54 @@ visible = false
 position = Vector2(612.172, 228.163)
 scale = Vector2(2.61172, 2.61172)
 texture = ExtResource("10_48cvj")
+
+[node name="InventoryItens" type="Node" parent="Sprites"]
+
+[node name="Espada" type="Sprite2D" parent="Sprites/InventoryItens"]
+visible = false
+position = Vector2(463.726, 331.875)
+scale = Vector2(3.8, 3.8)
+texture = ExtResource("11_scy73")
+
+[node name="Escudo" type="Sprite2D" parent="Sprites/InventoryItens"]
+visible = false
+position = Vector2(532.472, 334)
+scale = Vector2(4, 4)
+texture = ExtResource("12_8td62")
+
+[node name="Bomba" type="Sprite2D" parent="Sprites/InventoryItens"]
+visible = false
+position = Vector2(470.913, 390.068)
+scale = Vector2(4.6, 4.6)
+texture = ExtResource("13_5v8b1")
+
+[node name="Gancho" type="Sprite2D" parent="Sprites/InventoryItens"]
+visible = false
+position = Vector2(463.575, 466.637)
+scale = Vector2(3.8, 3.8)
+texture = ExtResource("14_wuyx3")
+
+[node name="Pa" type="Sprite2D" parent="Sprites/InventoryItens"]
+visible = false
+position = Vector2(537.532, 394.303)
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("15_3rfs2")
+
+[node name="VaraPesca" type="Sprite2D" parent="Sprites/InventoryItens"]
+visible = false
+position = Vector2(601.638, 334.334)
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("16_nhbfo")
+
+[node name="Mapa" type="Sprite2D" parent="Sprites/InventoryItens"]
+visible = false
+position = Vector2(601.487, 399.556)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("17_wlj7q")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites/InventoryItens"]
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites/InventoryItens"]
 
 [node name="TextLayer" type="Node" parent="."]
 

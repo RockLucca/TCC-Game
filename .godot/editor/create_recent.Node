@@ -1,14 +1,14 @@
-Label
 Sprite2D
+Node
+Control
+Label
 ColorRect
 TextureButton
 Button
 HBoxContainer
 VBoxContainer
 TextureRect
-Control
 HSlider
 AudioStreamPlayer
-Node
 MarginContainer
 PanelContainer

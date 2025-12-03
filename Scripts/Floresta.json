@@ -1,0 +1,80 @@
+[
+	{
+		"scene": "choose_dark_forest",
+		"text": "A Floresta Sombria de Astoria é conhecida por seus sussurros estranhos, árvores tortuosas e trilhas que mudam de lugar. A cada passo, o ar fica mais frio. Três caminhos se abrem entre as sombras, cada um igualmente assustador.",
+		"options": [
+			{
+				"text": "Seguir para o Castelo do Mal",
+				"change_area": "CasteloMal",
+				"next": "choose_evil_castle"
+			},
+			{
+				"text": "Voltar para o Castelo do Rei",
+				"change_area": "Castelo",
+				"next": "choose_castle_scene"
+			},
+			{
+				"text": "Seguir para o Lago",
+				"change_area": "Lago",
+				"next": "choose_lake"
+			},
+			{
+				"text": "Seguir o mapa até o tesouro",
+				"require": [
+					"Mapa",
+					"Pa"
+				],
+				"next": "forest_treasure_path"
+			}
+		]
+	},
+	{
+		"scene": "forest_treasure_path",
+		"text": "Seguindo as indicações do mapa, você avança por uma trilha quase invisível. As árvores parecem observá-lo enquanto você chega até uma clareira iluminada por um único feixe de luz. No centro, há um baú antigo parcialmente enterrado.",
+		"options": [
+			{
+				"text": "Cavar o baú usando a pá",
+				"require": [
+					"Pa"
+				],
+				"next": "forest_treasure_dig"
+			},
+			{
+				"text": "Desistir e voltar para a entrada da floresta",
+				"next": "choose_dark_forest"
+			}
+		]
+	},
+	{
+		"scene": "forest_treasure_dig",
+		"text": "Você cava por alguns minutos até revelar o baú por completo. A madeira escura está marcada com símbolos desconhecidos. O cadeado se abre sozinho com um clique assustador...",
+		"options": [
+			{
+				"text": "Abrir o baú",
+				"next": "forest_treasure_open"
+			},
+			{
+				"text": "Ficar com medo e fugir",
+				"next": "choose_dark_forest"
+			}
+		]
+	},
+	{
+		"scene": "forest_treasure_open",
+		"text": "O baú range ao abrir. Por um instante, você vê ouro… mas algo se mexe lá dentro.",
+		"options": [
+			{
+				"text": "Tocar no ouro brilhante",
+				"next": "none",
+				"ending": "devorado_mimico",
+				"is_ending": true
+			},
+			{
+				"text": "Puxar tudo rapidamente e correr",
+				"next": "none",
+				"ending": "tesouro_rico",
+				"is_ending": true
+			}
+		]
+	}
+]
