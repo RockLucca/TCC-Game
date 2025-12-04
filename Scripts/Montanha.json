@@ -1,0 +1,122 @@
+[
+	{
+		"scene": "choose_mountain",
+		"text": "A montanha de Astoria se ergue imponente ao norte, com seu pico escondido entre nuvens densas. O vento frio sopra e um pequeno caminho de pedras leva a três direções: de volta para sua casa, para o castelo do Rei, ou para mais acima, onde vive o famoso Ferreiro da Montanha.",
+		"options": [
+			{
+				"text": "Voltar para a Casa",
+				"change_area": "CasaAventureiro",
+				"next": "choose_home_scene"
+			},
+			{
+				"text": "Voltar para o Castelo",
+				"change_area": "Castelo",
+				"next": "choose_castle_scene"
+			},
+			{
+				"text": "Subir a montanha até o Ferreiro",
+				"next": "mountain_blacksmith"
+			},
+			{
+				"text": "Usar o gancho para escalar até o pico da montanha",
+				"require": ["Gancho"],
+				"next": "mountain_peak"
+			}
+		]
+	},
+
+	{
+		"scene": "mountain_blacksmith",
+		"text": "Após uma longa subida, você chega ao ateliê do Ferreiro da Montanha. Faíscas voam enquanto ele martela uma espada incandescente. Ao notar sua presença, ele suspira e diz: 'Se veio por armas, mapas ou histórias… posso ajudar.'",
+		"options": [
+			{
+				"text": "Pegar a Espada na mesa do Ferreiro",
+				"grant": ["Espada"],
+				"result": "Você pega a espada cuidadosamente da bancada.",
+				"next": "mountain_blacksmith_after_sword"
+			},
+			{
+				"text": "Conversar com o Ferreiro",
+				"next": "mountain_blacksmith_talk"
+			},
+			{
+				"text": "Atacar o Ferreiro com sua Espada",
+				"require": ["Espada"],
+				"result": "Você ergue a espada, avançando contra o Ferreiro.",
+				"next": "none",
+				"ending": "matar_ferreiro",
+				"is_ending": true
+			},
+			{
+				"text": "Voltar para o início da Montanha",
+				"next": "choose_mountain"
+			}
+		]
+	},
+
+	{
+		"scene": "mountain_blacksmith_after_sword",
+		"text": "Você segura firme sua nova espada. O Ferreiro franze a sobrancelha, mas não reclama. Ele continua trabalhando, porém observa cada movimento seu.",
+		"options": [
+			{
+				"text": "Conversar com o Ferreiro",
+				"next": "mountain_blacksmith_talk"
+			},
+			{
+				"text": "Sair e voltar à entrada da Montanha",
+				"next": "choose_mountain"
+			}
+		]
+	},
+
+	{
+		"scene": "mountain_blacksmith_talk",
+		"text": "O Ferreiro limpa o suor e diz: 'Há um tesouro antigo enterrado perto da raiz da grande árvore na base da montanha. Se quiser tentar achá-lo, posso te dar um mapa e uma pá. Só tome cuidado… Nem tudo que é enterrado deveria ser desenterrado.'",
+		"options": [
+			{
+				"text": "Receber o mapa e a pá",
+				"grant": ["Mapa", "Pa"],
+				"result": "Você recebe um mapa marcado com um X e uma pá resistente.",
+				"next": "mountain_blacksmith_after_gifts"
+			},
+			{
+				"text": "Agradecer e sair",
+				"next": "choose_mountain"
+			}
+		]
+	},
+
+	{
+		"scene": "mountain_blacksmith_after_gifts",
+		"text": "Com o mapa e a pá em mãos, você se sente pronto para buscar o tal tesouro.",
+		"options": [
+			{
+				"text": "Voltar para o início da Montanha",
+				"next": "choose_mountain"
+			}
+		]
+	},
+
+	{
+		"scene": "mountain_peak",
+		"text": "Usando o gancho com habilidade, você escala as rochas íngremes até chegar ao topo da montanha. Lá em cima, apenas nuvens, silêncio e uma vista infinita.",
+		"options": [
+			{
+				"text": "Pular da montanha acreditando que as nuvens são piso",
+				"next": "none",
+				"ending": "queda_nuvens",
+				"is_ending": true
+			},
+			{
+				"text": "Sentar e apreciar o mundo ao redor por horas",
+				"next": "none",
+				"ending": "meditacao_pico",
+				"is_ending": true
+			},
+			{
+				"text": "Descer e voltar para a Montanha",
+				"next": "choose_mountain"
+			}
+		]
+	}
+]

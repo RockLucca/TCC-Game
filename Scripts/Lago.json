@@ -1,0 +1,79 @@
+[
+	{
+		"scene": "choose_lake",
+		"text": "A floresta se abre revelando um enorme lago cristalino. As águas são calmas, quase brilhantes. Há uma cabana velha e abandonada na margem e um píer simples que avança sobre a água escura.",
+		"options": [
+			{
+				"text": "Explorar a cabana abandonada",
+				"next": "lake_cabin"
+			},
+			{
+				"text": "Ir até o píer",
+				"next": "lake_pier"
+			},
+			{
+				"text": "Voltar para a Floresta Sombria",
+				"change_area": "Floresta",
+				"next": "choose_dark_forest"
+			},
+			{
+				"text": "Seguir para o Castelo do Mal",
+				"change_area": "CasteloMal",
+				"next": "choose_evil_castle"
+			}
+		]
+	},
+	{
+		"scene": "lake_cabin",
+		"text": "A cabana está cheia de poeira e teias de aranha. No canto, você encontra um velho gancho de escalada, ainda funcional.",
+		"options": [
+			{
+				"text": "Pegar o gancho de escalada",
+				"grant": [
+					"Gancho"
+				],
+				"next": "choose_lake"
+			},
+			{
+				"text": "Voltar para o lago",
+				"next": "choose_lake"
+			}
+		]
+	},
+	{
+		"scene": "lake_pier",
+		"text": "A madeira velha do píer range sob seus passos. Perto da borda, alguém deixou uma vara de pesca encostada.",
+		"options": [
+			{
+				"text": "Pegar a vara de pesca",
+				"grant": [
+					"VaraPesca"
+				],
+				"next": "lake_pier_after"
+			},
+			{
+				"text": "Voltar para o lago",
+				"next": "choose_lake"
+			}
+		]
+	},
+	{
+		"scene": "lake_pier_after",
+		"text": "Agora com a vara de pesca em mãos, o lago parece ainda mais convidativo... ou perigoso.",
+		"options": [
+			{
+				"text": "Pescar nas águas profundas",
+				"require": [
+					"VaraPesca"
+				],
+				"next": "none",
+				"ending": "pescador_final",
+				"is_ending": true
+			},
+			{
+				"text": "Voltar para o lago",
+				"next": "choose_lake"
+			}
+		]
+	}
+]

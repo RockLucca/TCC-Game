@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxasnqb5q56ly"]
+
+[ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="1_6agc2"]
+[ext_resource type="AudioStream" uid="uid://dp07e2u2x07t0" path="res://SoundEffects/BGM/MenuMSC.ogg" id="2_bf8v2"]
+[ext_resource type="AudioStream" uid="uid://b4kqec30bwu4y" path="res://SoundEffects/UI/UI_sfx.ogg" id="3_lxo70"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_6agc2")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bf8v2")
+
+[node name="SFXUI" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lxo70")
+
+[node name="TTS" type="AudioStreamPlayer" parent="."]

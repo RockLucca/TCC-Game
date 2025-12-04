@@ -1,0 +1,186 @@
+[
+	{
+		"scene": "choose_evil_castle",
+		"text": "O Castelo do Mal se ergue sombrio diante de você. Portões quebrados, corredores escuros e um silêncio sufocante dominam o lugar. Sabe-se que a princesa está presa em algum lugar no interior.",
+		"options": [
+			{
+				"text": "Entrar pela porta principal",
+				"next": "evil_castle_hall"
+			},
+			{
+				"text": "Usar o gancho para subir pela muralha",
+				"require": [
+					"Gancho"
+				],
+				"next": "evil_castle_upper_entry"
+			},
+			{
+				"text": "Voltar para a Floresta Sombria",
+				"change_area": "Floresta",
+				"next": "choose_dark_forest"
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_hall",
+		"text": "Ao entrar pela porta principal, você é cercado por sombras vivas e criaturas retorcidas. Elas avançam rapidamente!",
+		"options": [
+			{
+				"text": "Enfrentar os inimigos",
+				"require": [
+					"Espada"
+				],
+				"next": "evil_castle_hall_fight"
+			},
+			{
+				"text": "Tentar fugir",
+				"next": "none",
+				"ending": "morreu_fugindo_castelo_mal",
+				"is_ending": true
+			},
+			{
+				"text": "Sem espada para lutar...",
+				"require": [],
+				"next": "none",
+				"ending": "morreu_inimigos_castelo_mal",
+				"is_ending": true
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_hall_fight",
+		"text": "Você derrota alguns inimigos à força, abrindo caminho para o interior do castelo. Um enorme corredor leva até o quarto da princesa.",
+		"options": [
+			{
+				"text": "Seguir até o quarto da princesa",
+				"next": "evil_castle_princess_room"
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_upper_entry",
+		"text": "Com o gancho, você escala a muralha com facilidade e evita todos os inimigos do salão principal. Uma janela quebrada leva direto ao quarto da princesa.",
+		"options": [
+			{
+				"text": "Entrar no quarto da princesa",
+				"next": "evil_castle_princess_room"
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_princess_room",
+		"text": "Você encontra a princesa acorrentada. Ela olha para você com esperança… ou medo, dependendo do brilho da sua espada.",
+		"options": [
+			{
+				"text": "Resgatar a princesa",
+				"require": [
+					"Espada",
+					"Escudo"
+				],
+				"next": "evil_castle_rescue_start"
+			},
+			{
+				"text": "Tentar resgatar sem armamento",
+				"next": "none",
+				"ending": "morto_pelo_cavaleiro_sem_armas",
+				"is_ending": true
+			},
+			{
+				"text": "Matar a princesa",
+				"require": [
+					"Espada"
+				],
+				"next": "none",
+				"ending": "matou_princesa",
+				"is_ending": true
+			},
+			{
+				"text": "Fugir do castelo",
+				"next": "choose_dark_forest"
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_rescue_start",
+		"text": "Você liberta a princesa, mas um estrondo ecoa pelo castelo. O Cavaleiro Maligno surge, armado com uma espada negra flamejante.",
+		"options": [
+			{
+				"text": "Enfrentar o cavaleiro",
+				"next": "evil_castle_fight_round1"
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_fight_round1",
+		"text": "O Cavaleiro Maligno avança rapidamente! Onde você tenta golpear?",
+		"options": [
+			{
+				"text": "Golpear o braço",
+				"require": [
+					"Espada"
+				],
+				"next": "evil_castle_fight_round2"
+			},
+			{
+				"text": "Golpear a perna",
+				"require": [
+					"Espada"
+				],
+				"next": "evil_castle_fight_round2"
+			},
+			{
+				"text": "Golpear a cabeça",
+				"require": [
+					"Espada"
+				],
+				"next": "evil_castle_fight_fail_head"
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_fight_fail_head",
+		"text": "Você tenta golpear a cabeça, mas o Cavaleiro Maligno prevê o movimento e corta você em um único ataque.",
+		"options": [
+			{
+				"text": "Fim",
+				"next": "none",
+				"ending": "morto_golpe_errado_cavaleiro",
+				"is_ending": true
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_fight_round2",
+		"text": "Você acerta o golpe! O Cavaleiro Maligno prepara um contra-ataque brutal.",
+		"options": [
+			{
+				"text": "Levantar o escudo para defender",
+				"require": [
+					"Escudo"
+				],
+				"next": "evil_castle_fight_final"
+			},
+			{
+				"text": "Tentar esquivar",
+				"next": "none",
+				"ending": "morto_contra_ataque",
+				"is_ending": true
+			}
+		]
+	},
+	{
+		"scene": "evil_castle_fight_final",
+		"text": "O escudo absorve o golpe terrível. O Cavaleiro Maligno cambaleia. É a sua chance!",
+		"options": [
+			{
+				"text": "Desferir o golpe final",
+				"require": [
+					"Espada"
+				],
+				"next": "none",
+				"ending": "resgatou_princesa_final_bom",
+				"is_ending": true
+			}
+		]
+	}
+]

@@ -11,9 +11,46 @@ config_version=5
 [application]
 
 config/name="TCC Game"
-config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://icon.svg"
+run/main_scene="res://Scenes/menu.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+config/icon="res://Sprites/icon.png"
+
+[audio]
+
+buses/default_bus_layout="res://SoundEffects/default_bus_layout.tres"
+general/text_to_speech=true
+
+[autoload]
+
+Config="*res://Scripts/config.gd"
+Global="*res://Scripts/global.gd"
+DaltonicFilter="*res://Scenes/DaltonicFilterGlobal.tscn"
+TTSManager="*res://Scripts/TTSManager.gd"
+AudioManager="*res://Scenes/audio_manager.tscn"
+EndingDatabase="*res://Scripts/ending_database.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Font/": "red",
+"res://MaterialsThemes/": "purple",
+"res://Scenes/": "blue",
+"res://Scripts/": "green",
+"res://SoundEffects/": "yellow",
+"res://Sprites/": "teal"
+}
+
+[gui]
+
+theme/custom_font="res://Font/ARIAL.TTF"
 
 [rendering]
 
-renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"

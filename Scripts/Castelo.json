@@ -1,0 +1,166 @@
+[
+	{
+		"scene": "castle_entrance",
+		"text": "Você chega ao portão principal do castelo. Guardas vigiam a área, mas você consegue circular por algumas regiões sem levantar suspeitas.",
+		"options": [
+			{
+				"text": "Ir ao mercado do castelo",
+				"next": "castle_market"
+			},
+			{
+				"text": "Ir até a sala do rei",
+				"next": "castle_throne_room"
+			},
+			{
+				"text": "Seguir para a montanha do ferreiro",
+				"change_area": "Montanha",
+				"next": "blacksmith_mountain"
+			},
+			{
+				"text": "Seguir para a floresta sombria",
+				"change_area": "Floresta",
+				"next": "dark_forest"
+			}
+		]
+	},
+	{
+		"scene": "castle_market",
+		"text": "O mercado está cheio de barracas com alimentos, poções e ferramentas. Alguns mercadores brigam entre si por clientes.",
+		"options": [
+			{
+				"text": "Roubar a bomba de uma barraca distraída",
+				"result": "Você pega a bomba sem que ninguém perceba.",
+				"grant": [
+					"bomb"
+				],
+				"next": "castle_market"
+			},
+			{
+				"text": "Conversar com um mercador",
+				"result": "O mercador fala sobre a instabilidade do reino, mas não parece muito interessado em você.",
+				"next": "castle_market"
+			},
+			{
+				"text": "Ameaçar os mercadores com sua espada",
+				"require": [
+					"sword"
+				],
+				"result": "Você puxa a espada para intimidar os vendedores.",
+				"next": "none",
+				"ending": "prisao_mercado",
+				"is_ending": true
+			},
+			{
+				"text": "Voltar à entrada do castelo",
+				"next": "castle_entrance"
+			}
+		]
+	},
+	{
+		"scene": "castle_throne_room",
+		"text": "Você entra na sala do trono. O rei observa você com desconfiança. Guardas posicionam-se próximos às colunas.",
+		"options": [
+			{
+				"text": "Conversar com o rei",
+				"result": "O rei o ignora, afirmando estar ocupado com assuntos reais.",
+				"next": "castle_throne_room"
+			},
+			{
+				"text": "Pegar discretamente um escudo decorativo",
+				"result": "Você observa um escudo encostado em uma parede. Com cuidado, o pega sem ser visto.",
+				"grant": [
+					"shield"
+				],
+				"next": "castle_throne_room"
+			},
+			{
+				"text": "Armar a bomba discretamente",
+				"require": [
+					"bomb"
+				],
+				"result": "Você acende o pavio e tenta sair sem chamar atenção...",
+				"next": "none",
+				"ending": "explosao_trono",
+				"is_ending": true
+			},
+			{
+				"text": "Atacar o rei com a espada",
+				"require": [
+					"sword"
+				],
+				"result": "Você ergue a espada, pronto para tomar o trono pela força.",
+				"next": "none",
+				"ending": "usurpar_trono",
+				"is_ending": true
+			},
+			{
+				"text": "Voltar à entrada do castelo",
+				"next": "castle_entrance"
+			}
+		]
+	},
+	{
+		"scene": "blacksmith_mountain",
+		"text": "A trilha até a montanha é longa, mas a forja do ferreiro pode ser vista brilhando ao longe.",
+		"options": [
+			{
+				"text": "Conversar com o ferreiro",
+				"result": "O ferreiro comenta sobre uma lenda antiga e sobre armas especiais.",
+				"next": "blacksmith_mountain"
+			},
+			{
+				"text": "Pedir para melhorar sua espada",
+				"require": [
+					"sword"
+				],
+				"result": "O ferreiro aprimora sua espada, deixando-a mais resistente.",
+				"grant": [
+					"sword_upgraded"
+				],
+				"next": "blacksmith_mountain"
+			},
+			{
+				"text": "Voltar ao castelo",
+				"next": "castle_entrance"
+			}
+		]
+	},
+	{
+		"scene": "dark_forest",
+		"text": "A floresta sombria é densa e repleta de sons estranhos. Algo parece observar você entre as árvores.",
+		"options": [
+			{
+				"text": "Explorar mais profundamente",
+				"result": "Você avança por um caminho quase invisível.",
+				"next": "dark_forest"
+			},
+			{
+				"text": "Tentar coletar ervas brilhantes",
+				"result": "Você encontra ervas raras que brilham levemente ao toque.",
+				"grant": [
+					"glowing_herb"
+				],
+				"next": "dark_forest"
+			},
+			{
+				"text": "Voltar ao castelo",
+				"next": "castle_entrance"
+			}
+		]
+	},
+	{
+		"scene": "home_scene",
+		"text": "Você retorna para casa. Apesar de simples, é o único lugar onde você realmente se sente seguro.",
+		"options": [
+			{
+				"text": "Olhar ao redor e descansar um pouco",
+				"result": "Você respira fundo e relaxa.",
+				"next": "home_scene"
+			},
+			{
+				"text": "Voltar ao castelo",
+				"next": "castle_entrance"
+			}
+		]
+	}
+]

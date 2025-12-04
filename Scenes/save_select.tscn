@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://dph2svrn5sdur"]
+
+[ext_resource type="Script" path="res://Scripts/save_select.gd" id="1_7xy5h"]
+[ext_resource type="Texture2D" uid="uid://c0dxarkanjbb8" path="res://Sprites/UI/save_screen.png" id="2_snp1a"]
+[ext_resource type="Texture2D" uid="uid://bbrn6j8ksjbb7" path="res://Sprites/Text.png" id="3_8e0q2"]
+
+[node name="SaveSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_7xy5h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("2_snp1a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(4.00001, -75.7504)
+scale = Vector2(4.36364, 7.4844)
+texture = ExtResource("3_8e0q2")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -604.0
+offset_top = 292.0
+offset_right = -595.0
+offset_bottom = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 2.156)
+text = "Voltar"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -232.0
+offset_right = 185.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Selecione um Save"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+horizontal_scroll_mode = 0
+
+[node name="SaveList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="SaveSlot1" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList"]
+layout_mode = 2
+
+[node name="SaveButton1" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot1"]
+layout_mode = 2
+
+[node name="DeleteButton1" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot1"]
+layout_mode = 2
+
+[node name="SaveSlot2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList"]
+layout_mode = 2
+
+[node name="SaveButton2" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot2"]
+layout_mode = 2
+
+[node name="DeleteButton2" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot2"]
+layout_mode = 2
+
+[node name="SaveSlot3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList"]
+layout_mode = 2
+
+[node name="SaveButton3" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot3"]
+layout_mode = 2
+
+[node name="DeleteButton3" type="TextureButton" parent="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot3"]
+layout_mode = 2
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot1/SaveButton1" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot1/DeleteButton1" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot2/SaveButton2" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot2/DeleteButton2" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot3/SaveButton3" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/SaveList/SaveSlot3/DeleteButton3" to="." method="_on_delete_pressed"]

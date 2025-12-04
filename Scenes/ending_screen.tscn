@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnwi4tvxen3wy"]
+
+[ext_resource type="Script" path="res://Scripts/ending_screen.gd" id="1_b0e1y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ok04"]
+load_path = "res://.godot/imported/FinalDormir.png-ec913ab08f5df13cd5d76fdb0a64c923.ctex"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0e1y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0901961, 0.0901961, 0.0901961, 0.490196)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -126.0
+offset_right = -60.5
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+texture = SubResource("CompressedTexture2D_8ok04")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.5
+offset_top = -141.0
+offset_right = 62.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Recomecar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Recomeçar jogo"
+
+[connection signal="pressed" from="VBoxContainer/Recomecar" to="." method="_on_recomecar_pressed"]
