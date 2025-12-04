@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_b10ie"]
 [ext_resource type="Theme" uid="uid://clxpl8auuga33" path="res://MaterialsThemes/buttonsScoll.tres" id="2_skikm"]
 [ext_resource type="Texture2D" uid="uid://chfxwyai4yvxf" path="res://Sprites/Scroll.png" id="3_hsown"]
-[ext_resource type="Texture2D" uid="uid://rfjo7yk3dley" path="res://icon.svg" id="4_0l7xb"]
+[ext_resource type="Texture2D" uid="uid://diqxng7uf6eny" path="res://icon.svg" id="4_0l7xb"]
 [ext_resource type="Texture2D" uid="uid://bg505k584aks3" path="res://Sprites/UI/main_menu.png" id="4_crpgd"]
 [ext_resource type="Texture2D" uid="uid://cj4qflbj38mqj" path="res://Sprites/logo_gamepad_80x80.png" id="4_wtqg2"]
 [ext_resource type="Texture2D" uid="uid://cv2ph8x3a17pw" path="res://Sprites/UI/teclado.png" id="6_k67m8"]
